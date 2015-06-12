@@ -22,7 +22,7 @@ pod "KSReason"
 
 #### Iterating
 
-**NSSet**
+**Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 [collection KS_each:^(NSString *object) {
@@ -30,7 +30,7 @@ NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 }];
 ```
 
-**NSArray**
+**Arrays:**
 ```objc
 NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NULL];
 [collection KS_each:^(NSString *object) {
@@ -38,7 +38,7 @@ NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NU
 }];
 ```
 
-**NSDictionary**
+**Dictionaries:**
 ```objc
 NSDictionary *collection = @{ @"alpha": @"alpha", @"omega": @"omega", @"sigma": @"sigma" };
 [collection KS_each:^(NSString *object) {
@@ -48,7 +48,7 @@ NSDictionary *collection = @{ @"alpha": @"alpha", @"omega": @"omega", @"sigma": 
 
 #### Map
 
-**NSSet**
+**Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 [collection KS_map:^NSString *(NSString *object) {
@@ -57,7 +57,7 @@ NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 }];
 ```
 
-**NSArray**
+**Arrays:**
 ```objc
 NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NULL];
 [collection KS_map:^NSString *(NSString *object) {
@@ -66,7 +66,7 @@ NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NU
 }];
 ```
 
-**NSDictionary**
+**Dictionaries:**
 ```objc
 NSDictionary *collection = @{ @"alpha": @"alpha", @"omega": @"omega", @"sigma": @"sigma" };
 [collection KS_map:^NSString *(NSString *key, NSString *value) {
@@ -77,7 +77,7 @@ NSDictionary *collection = @{ @"alpha": @"alpha", @"omega": @"omega", @"sigma": 
 
 #### Reduce
 
-**NSSet**
+**Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString *object){
@@ -85,7 +85,7 @@ NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString
 } memo:@"reduction:"];
 ```
 
-**NSArray**
+**Arrays:**
 ```objc
 NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NULL];
 NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString *object){
@@ -93,7 +93,7 @@ NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString
 } memo:@"reduction:"];
 ```
 
-**NSDictionary**
+**Dictionaries:**
 ```objc
 NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NULL];
 NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString *key, NSString *value){
@@ -103,7 +103,7 @@ NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString
 
 #### Find
 
-**NSSet**
+**Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 NSString *element = [collection KS_find:^BOOL (NSString *object) {
@@ -111,7 +111,7 @@ NSString *element = [collection KS_find:^BOOL (NSString *object) {
 }];
 ```
 
-**NSArray**
+**Arrays:**
 ```objc
 NSArray *collection = [NSArray arrayWithObjects:@"alpha", @"sigma", @"omega", NULL];
 NSString *element = [collection KS_find:^BOOL (NSString *object) {
@@ -119,7 +119,7 @@ NSString *element = [collection KS_find:^BOOL (NSString *object) {
 }];
 ```
 
-**NSDictionary**
+**Dictionaries:**
 ```objc
 NSDictionary *collection = @{ @"alpha" : @"alpha", @"sigma": @"sigma", @"omega": @"omega" };
 NSString *element = [collection KS_find:^BOOL (NSString *key, NSString *value) {
@@ -129,14 +129,14 @@ NSString *element = [collection KS_find:^BOOL (NSString *key, NSString *value) {
 
 #### Any
 
-**NSSet**
+**Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 BOOL any = [collection KS_any:^BOOL (NSString *object) {
   return [object isEqualToString:@"..."];
 }];
 
-**NSArray**
+**Arrays:**
 ```objc
 NSArray *collection = [NSArray arrayWithObjects:@"alpha", @"sigma", @"omega", NULL];
 BOOL any = [collection KS_any:^BOOL (NSString *object) {
@@ -144,7 +144,7 @@ BOOL any = [collection KS_any:^BOOL (NSString *object) {
 }];
 ```
 
-**NSDictionary**
+**Dictionaries:**
 ```
 NSDictionary *collection = @{ @"alpha" : @"alpha", @"sigma": @"sigma", @"omega": @"omega" };
 BOOL any = [collection KS_any:^BOOL (NSString *key, NSString *value) {
@@ -154,7 +154,7 @@ BOOL any = [collection KS_any:^BOOL (NSString *key, NSString *value) {
 
 #### Filter
 
-**NSSet**
+**Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 NSSet *filter = [collection KS_filter:^BOOL (NSString *object) {
@@ -163,7 +163,7 @@ NSSet *filter = [collection KS_filter:^BOOL (NSString *object) {
 }];
 ```
 
-**NSArray**
+**Arrays:**
 ```objc
 NSArray *collection = [NSArray arrayWithObjects:@"alpha", @"sigma", @"omega", NULL];
 NSArray *filtered = [collection KS_filter:^BOOL (NSString *object) {
@@ -172,7 +172,7 @@ NSArray *filtered = [collection KS_filter:^BOOL (NSString *object) {
 }];
 ```
 
-**NSDictionary**
+**Dictionaries:**
 ```objc
 NSDictionary *collection = @{ @"alpha" : @"alpha", @"sigma": @"sigma", @"omega": @"omega" };
 NSDictionary *filtered = [collection KS_filter:^BOOL (NSString *key, NSString *value) {

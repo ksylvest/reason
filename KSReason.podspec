@@ -1,38 +1,21 @@
-#
-# Be sure to run `pod lib lint KSReason.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# Any lines starting with a # are optional, but encouraged
-#
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = "KSReason"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of KSReason."
+  s.version          = "1.0.0"
+  s.summary          = "A number of helpers for doing iteration, parsing, and more"
   s.description      = <<-DESC
-                       An optional longer description of KSReason
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
+                       * `KSParser` provides parsing for a number of classes such as NSNumber, NSString and NSDate to help with parsing APIs.
+                       * `KSEnumerable` implements many enumeration methods such as each, map, reduce, filter, and find using a block syntax.
+                       * `KSBackbone` provides some basic helpers for creating models and collections.
                        DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/KSReason"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/ksylvest/reason"
+
   s.license          = 'MIT'
   s.author           = { "Kevin Sylvestre" => "kevin@ksylvest.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/KSReason.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/ksylvest/reason.git", :tag => s.version.to_s }
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'KSReason' => ['Pod/Assets/*.png']
-  }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.resource_bundles = { 'KSReason' => ['Pod/Assets/*'] }
 end

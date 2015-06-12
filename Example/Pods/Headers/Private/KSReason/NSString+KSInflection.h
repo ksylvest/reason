@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/Inflections/NSString+KSInflection.h

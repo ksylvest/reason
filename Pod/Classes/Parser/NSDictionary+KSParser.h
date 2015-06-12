@@ -8,6 +8,6 @@
 
 #import <KSReason/KSReason.h>
 
-@interface NSDictionary (KSPArser)
+@interface NSDictionary (KSParser)
 
 @end

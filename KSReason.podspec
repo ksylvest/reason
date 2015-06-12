@@ -1,10 +1,11 @@
 Pod::Spec.new do |s|
   s.name             = "KSReason"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "A number of helpers for doing iteration, parsing, and more"
   s.description      = <<-DESC
                        * `KSParser` provides parsing for a number of classes such as NSNumber, NSString and NSDate to help with parsing APIs.
                        * `KSEnumerable` implements many enumeration methods such as each, map, reduce, filter, and find using a block syntax.
+                       * `KSInflection` implements pluralization and singularization helpers for strings and allows custom rules to be defined.
                        * `KSBackbone` provides some basic helpers for creating models and collections.
                        DESC
   s.homepage         = "https://github.com/ksylvest/reason"

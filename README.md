@@ -181,6 +181,33 @@ NSDictionary *filtered = [collection KS_filter:^BOOL (NSString *key, NSString *v
 }];
 ```
 
+### Inflections
+
+#### Pluralize
+
+```objc
+[@"cookie" KS_pluralize]; // cookies
+[@"cherry" KS_pluralize]; // cherries
+[@"potato" KS_pluralize]; // potatoes
+```
+
+#### Singularize
+
+```objc
+[@"cookies" KS_singularize]; // cookie
+[@"cherries" KS_pluralize]; // cherry
+[@"potatoes" KS_pluralize]; // potato
+```
+
+#### Advanced
+
+```objc
+[KSInflector config:^(KSInflector *inflector) {
+  [inflector singular:@"oxen$" replacement:@"ox"];
+  [inflector plural:@"ox$" replacement:@"oxen"];
+}];
+```
+
 ## Author
 
 Kevin Sylvestre, kevin@ksylvest.com

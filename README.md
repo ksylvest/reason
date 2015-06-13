@@ -24,7 +24,7 @@ pod "KSReason"
 
 **Sets:**
 ```objc
-NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
+NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
 [collection KS_each:^(NSString *object) {
   // ...
 }];
@@ -32,7 +32,7 @@ NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 
 **Arrays:**
 ```objc
-NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NULL];
+NSArray *collection = [NSArray arrayWithObjects;@"Canada", @"Greece", @"Russia", NULL];
 [collection KS_each:^(NSString *object) {
   // ...
 }];
@@ -40,7 +40,7 @@ NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NU
 
 **Dictionaries:**
 ```objc
-NSDictionary *collection = @{ @"alpha": @"alpha", @"omega": @"omega", @"sigma": @"sigma" };
+NSDictionary *collection = @{ @"Canada": @"Victoria", @"Russia": @"Moscow", @"Greece": @"Athens" };
 [collection KS_each:^(NSString *object) {
   // ...
 }];
@@ -50,7 +50,7 @@ NSDictionary *collection = @{ @"alpha": @"alpha", @"omega": @"omega", @"sigma": 
 
 **Sets:**
 ```objc
-NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
+NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
 [collection KS_map:^NSString *(NSString *object) {
   // ex: NSString *mapping = [object reverse];
   return mapping;
@@ -59,7 +59,7 @@ NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
 
 **Arrays:**
 ```objc
-NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NULL];
+NSArray *collection = [NSArray arrayWithObjects;@"Canada", @"Greece", @"Russia", NULL];
 [collection KS_map:^NSString *(NSString *object) {
   // ex: NSString *mapping = [object reverse];
   return mapping;
@@ -68,7 +68,7 @@ NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NU
 
 **Dictionaries:**
 ```objc
-NSDictionary *collection = @{ @"alpha": @"alpha", @"omega": @"omega", @"sigma": @"sigma" };
+NSDictionary *collection = @{ @"Canada": @"Victoria", @"Russia": @"Moscow", @"Greece": @"Athens" };
 [collection KS_map:^NSString *(NSString *key, NSString *value) {
   // ex: NSString *mapping = [value reverse];
   return mapping;
@@ -79,7 +79,7 @@ NSDictionary *collection = @{ @"alpha": @"alpha", @"omega": @"omega", @"sigma": 
 
 **Sets:**
 ```objc
-NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
+NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
 NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString *object){
   return [NSString stringWithFormat:@"%@ %@", memo, object];
 } memo:@"reduction:"];
@@ -87,7 +87,7 @@ NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString
 
 **Arrays:**
 ```objc
-NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NULL];
+NSArray *collection = [NSArray arrayWithObjects;@"Canada", @"Greece", @"Russia", NULL];
 NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString *object){
   return [NSString stringWithFormat:@"%@ %@", memo, object];
 } memo:@"reduction:"];
@@ -95,7 +95,7 @@ NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString
 
 **Dictionaries:**
 ```objc
-NSArray *collection = [NSArray arrayWithObjects;@"alpha", @"sigma", @"omega", NULL];
+NSArray *collection = [NSArray arrayWithObjects;@"Canada", @"Greece", @"Russia", NULL];
 NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString *key, NSString *value){
   return [NSString stringWithFormat:@"%@ %@", memo, value];
 } memo:@"reduction:"];
@@ -105,7 +105,7 @@ NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString
 
 **Sets:**
 ```objc
-NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
+NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
 NSString *element = [collection KS_find:^BOOL (NSString *object) {
   return [object isEqualToString:@"..."];
 }];
@@ -113,7 +113,7 @@ NSString *element = [collection KS_find:^BOOL (NSString *object) {
 
 **Arrays:**
 ```objc
-NSArray *collection = [NSArray arrayWithObjects:@"alpha", @"sigma", @"omega", NULL];
+NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
 NSString *element = [collection KS_find:^BOOL (NSString *object) {
   return [object isEqualToString:@"..."];
 }];
@@ -121,7 +121,7 @@ NSString *element = [collection KS_find:^BOOL (NSString *object) {
 
 **Dictionaries:**
 ```objc
-NSDictionary *collection = @{ @"alpha" : @"alpha", @"sigma": @"sigma", @"omega": @"omega" };
+NSDictionary *collection = @{ @"Canada" : @"Victoria", @"Greece": @"Athens", @"Russia": @"Moscow" };
 NSString *element = [collection KS_find:^BOOL (NSString *key, NSString *value) {
   return [key isEqualToString:@"..."];
 }];
@@ -131,14 +131,14 @@ NSString *element = [collection KS_find:^BOOL (NSString *key, NSString *value) {
 
 **Sets:**
 ```objc
-NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
+NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
 BOOL any = [collection KS_any:^BOOL (NSString *object) {
   return [object isEqualToString:@"..."];
 }];
 
 **Arrays:**
 ```objc
-NSArray *collection = [NSArray arrayWithObjects:@"alpha", @"sigma", @"omega", NULL];
+NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
 BOOL any = [collection KS_any:^BOOL (NSString *object) {
   return [object isEqualToString:@"..."];
 }];
@@ -146,8 +146,33 @@ BOOL any = [collection KS_any:^BOOL (NSString *object) {
 
 **Dictionaries:**
 ```
-NSDictionary *collection = @{ @"alpha" : @"alpha", @"sigma": @"sigma", @"omega": @"omega" };
+NSDictionary *collection = @{ @"Canada" : @"Victoria", @"Greece": @"Athens", @"Russia": @"Moscow" };
 BOOL any = [collection KS_any:^BOOL (NSString *key, NSString *value) {
+  return [key isEqualToString:@"..."];
+}];
+```
+
+#### All
+
+**Sets:**
+```objc
+NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
+BOOL all = [collection KS_all:^BOOL (NSString *object) {
+  return [object isEqualToString:@"..."];
+}];
+
+**Arrays:**
+```objc
+NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
+BOOL all = [collection KS_all:^BOOL (NSString *object) {
+  return [object isEqualToString:@"..."];
+}];
+```
+
+**Dictionaries:**
+```
+NSDictionary *collection = @{ @"Canada" : @"Victoria", @"Greece": @"Athens", @"Russia": @"Moscow" };
+BOOL all = [collection KS_all:^BOOL (NSString *key, NSString *value) {
   return [key isEqualToString:@"..."];
 }];
 ```
@@ -156,7 +181,7 @@ BOOL any = [collection KS_any:^BOOL (NSString *key, NSString *value) {
 
 **Sets:**
 ```objc
-NSSet *collection = [NSSet setWithObjects:@"alpha", @"sigma", @"omega", NULL];
+NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
 NSSet *filter = [collection KS_filter:^BOOL (NSString *object) {
   // ex.: BOOL match = [object isEqualToString:@"..."];
   return match;
@@ -165,7 +190,7 @@ NSSet *filter = [collection KS_filter:^BOOL (NSString *object) {
 
 **Arrays:**
 ```objc
-NSArray *collection = [NSArray arrayWithObjects:@"alpha", @"sigma", @"omega", NULL];
+NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
 NSArray *filtered = [collection KS_filter:^BOOL (NSString *object) {
   // ex.: BOOL match = [object isEqualToString:@"..."];
   return match;
@@ -174,8 +199,37 @@ NSArray *filtered = [collection KS_filter:^BOOL (NSString *object) {
 
 **Dictionaries:**
 ```objc
-NSDictionary *collection = @{ @"alpha" : @"alpha", @"sigma": @"sigma", @"omega": @"omega" };
+NSDictionary *collection = @{ @"Canada" : @"Victoria", @"Greece": @"Athens", @"Russia": @"Moscow" };
 NSDictionary *filtered = [collection KS_filter:^BOOL (NSString *key, NSString *value) {
+  // ex.: BOOL match = [key isEqualToString:@"..."] || [value isEqualToString:@"..."];
+  return match;
+}];
+```
+
+#### Reject
+
+**Sets:**
+```objc
+NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
+NSSet *filter = [collection KS_reject:^BOOL (NSString *object) {
+  // ex.: BOOL match = [object isEqualToString:@"..."];
+  return match;
+}];
+```
+
+**Arrays:**
+```objc
+NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
+NSArray *filtered = [collection KS_reject:^BOOL (NSString *object) {
+  // ex.: BOOL match = [object isEqualToString:@"..."];
+  return match;
+}];
+```
+
+**Dictionaries:**
+```objc
+NSDictionary *collection = @{ @"Canada" : @"Victoria", @"Greece": @"Athens", @"Russia": @"Moscow" };
+NSDictionary *filtered = [collection KS_reject:^BOOL (NSString *key, NSString *value) {
   // ex.: BOOL match = [key isEqualToString:@"..."] || [value isEqualToString:@"..."];
   return match;
 }];

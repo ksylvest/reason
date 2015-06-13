@@ -81,7 +81,7 @@
 
 #pragma mark - Find
 
-- (id)KS_find:(KSSetFindBlock)block
+- (id)KS_find:(KSSetTestBlock)block
 {
     for (id object in self)
     {
@@ -95,16 +95,42 @@
 
 #pragma mark - Any
 
-- (BOOL)KS_any:(KSSetAnyBlock)block
+- (BOOL)KS_any:(KSSetTestBlock)block
 {
-    return !![self KS_find:block];
+    for (id object in self)
+    {
+        if (block(object)) return YES;
+    }
+    return NO;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - All
+
+- (BOOL)KS_all:(KSSetTestBlock)block
+{
+    for (id object in self)
+    {
+        if (!block(object)) return NO;
+    }
+    return YES;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Size
+
+- (NSUInteger)KS_size
+{
+    return self.count;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 #pragma mark - Filtering
 
-- (NSSet *)KS_filter:(KSSetFilterBlock)block
+- (NSSet *)KS_filter:(KSSetTestBlock)block
 {
     NSMutableSet *results = [NSMutableSet setWithCapacity:self.count];
     
@@ -117,6 +143,40 @@
     }
     
     return results;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Rejecting
+
+- (NSSet *)KS_reject:(KSSetTestBlock)block
+{
+    return [self KS_filter:[self KS_negate:block]];
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Converters
+
+- (NSArray *)KS_array:(KSSetArrayBlock)block
+{
+    NSMutableArray *results = [NSMutableArray arrayWithCapacity:self.count];
+    
+    for (id object in self)
+    {
+        [results addObject:block ? block(object) : object];
+    }
+    
+    return results;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Negating
+
+- (KSSetTestBlock)KS_negate:(KSSetTestBlock)block
+{
+    return ^BOOL (id object) { return !block(object); };
 }
 
 @end

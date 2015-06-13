@@ -13,9 +13,8 @@ typedef void (^KSArrayEachIBlock)(id object, NSUInteger index);
 typedef id (^KSArrayMapBlock)(id object);
 typedef id (^KSArrayMapIBlock)(id object, NSUInteger index);
 typedef id (^KSArrayReduceBlock)(id memo, id object);
-typedef BOOL (^KSArrayFindBlock)(id object);
-typedef BOOL (^KSArrayAnyBlock)(id object);
-typedef BOOL (^KSArrayFilterBlock)(id object);
+typedef BOOL (^KSArrayTestBlock)(id object);
+typedef NSSet * (^KSArraySetBlock)(id object);
 
 /**
  A category for adding some additional functionaly to arrays.
@@ -37,12 +36,14 @@ typedef BOOL (^KSArrayFilterBlock)(id object);
 /**
  An implementation of map from the map / reduce pattern.
  @param block A block with an object that is execute on every entry.
+ @return A collection where each element has had the block applied to it.
  */
 - (NSArray *)KS_map:(KSArrayMapBlock)block;
 
 /**
  An implementation of map from the map / reduce pattern that includes a helpful iteration index.
  @param block A block with an object that is execute on every entry with an index.
+ @return A collection where each element has had the block applied to it.
  */
 - (NSArray *)KS_mapi:(KSArrayMapIBlock)block;
 
@@ -50,25 +51,56 @@ typedef BOOL (^KSArrayFilterBlock)(id object);
  An implementation of map from the map / reduce pattern.
  @param block A block with an object that is execute on every entry and a memo.
  @param memo The inital memo (NULL is fine).
+ @return The value of memo that is returned after each block execution.
  */
 - (id)KS_reduce:(KSArrayReduceBlock)block memo:(id)memo;
 
 /**
  An implementation of find using a block for searching.
  @param block A block that is used for comparisons.
+ @return The found element or NULL.
  */
-- (id)KS_find:(KSArrayFindBlock)block;
+- (id)KS_find:(KSArrayTestBlock)block;
 
 /**
- Tests if any element matches the test.
- @param block A block that is used for testing.
+ Tests if any element pass the block passed in for testing.
+ @param block A block that is used for testing each element.
+ @return If any element in the collection passes the block test.
  */
-- (BOOL)KS_any:(KSArrayAnyBlock)block;
+- (BOOL)KS_any:(KSArrayTestBlock)block;
 
 /**
- An implementation of filter.
+ Tests if all element pass the block passed in for testing.
+ @param block A block that is used for testing each element.
+ @return If all elements in the collection passes the block test.
+ */
+- (BOOL)KS_all:(KSArrayTestBlock)block;
+
+/**
+ Count the number of elements in the collection.
+ @return The number of elements in the collection.
+ */
+- (NSUInteger)KS_size;
+
+/**
+ Look through each entry in the collection returning all entries that pass the block test.
  @param block A block that is used for filtering.
+ @return A filtered collection.
  */
-- (NSArray *)KS_filter:(KSArrayFilterBlock)block;
+- (NSArray *)KS_filter:(KSArrayTestBlock)block;
+
+/**
+ Look through each entry in the collection returning all entries that fail the block test.
+ @param block A block that is used for filtering.
+ @return A rejected collection.
+ */
+- (NSArray *)KS_reject:(KSArrayTestBlock)block;
+
+/**
+ Helps to convert a array to a set using a block on element.
+ @param block A block used to do the reduction.
+ @return A mapped set.
+ */
+- (NSSet *)KS_set:(KSArraySetBlock)block;
 
 @end

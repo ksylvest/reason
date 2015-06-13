@@ -88,7 +88,7 @@
 
 #pragma mark - Find
 
-- (id)KS_find:(KSDictionaryFindBlock)block
+- (id)KS_find:(KSDictionaryTestBlock)block
 {
     for (id key in self)
     {
@@ -103,16 +103,44 @@
 
 #pragma mark - Any
 
-- (BOOL)KS_any:(KSDictionaryAnyBlock)block
+- (BOOL)KS_any:(KSDictionaryTestBlock)block
 {
-    return !![self KS_find:block];
+    for (id key in self)
+    {
+        id value = self[key];
+        if (block(key, value)) return YES;
+    }
+    return NO;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - All
+
+- (BOOL)KS_all:(KSDictionaryTestBlock)block
+{
+    for (id key in self)
+    {
+        id value = self[key];
+        if (!block(key, value)) return NO;
+    }
+    return YES;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Size
+
+- (NSUInteger)KS_size
+{
+    return self.count;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
 #pragma mark - Filtering
 
-- (NSDictionary *)KS_filter:(KSDictionaryFilterBlock)block
+- (NSDictionary *)KS_filter:(KSDictionaryTestBlock)block
 {
     NSMutableDictionary *results = [NSMutableDictionary dictionaryWithCapacity:self.count];
     
@@ -126,6 +154,24 @@
     }
     
     return results;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Rejecting
+
+- (NSDictionary *)KS_reject:(KSDictionaryTestBlock)block
+{
+    return [self KS_filter:[self KS_negate:block]];
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Negating
+
+- (KSDictionaryTestBlock)KS_negate:(KSDictionaryTestBlock)block
+{
+    return ^BOOL (id key, id value) { return !block(key, value); };
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -190,6 +236,30 @@
 - (NSDictionary *)KS_defaults:(NSDictionary *)dictionary
 {
     return [dictionary KS_extend:self];
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Conversions
+
+- (NSSet *)KS_keys
+{
+    NSMutableSet *keys = [NSMutableSet setWithCapacity:self.count];
+    for (id key in self)
+    {
+        [keys addObject:key];
+    }
+    return keys;
+}
+
+- (NSArray *)KS_values
+{
+    NSMutableArray *values = [NSMutableArray arrayWithCapacity:self.count];
+    for (id key in self)
+    {
+        [values addObject:self[key]];
+    }
+    return values;
 }
 
 @end

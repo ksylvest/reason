@@ -51,7 +51,7 @@ NSDictionary *collection = @{ @"Canada": @"Victoria", @"Russia": @"Moscow", @"Gr
 **Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
-[collection KS_map:^NSString *(NSString *object) {
+NSSet *mapping = [collection KS_map:^NSString *(NSString *object) {
   // ex: NSString *mapping = [object reverse];
   return mapping;
 }];
@@ -60,7 +60,7 @@ NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL]
 **Arrays:**
 ```objc
 NSArray *collection = [NSArray arrayWithObjects;@"Canada", @"Greece", @"Russia", NULL];
-[collection KS_map:^NSString *(NSString *object) {
+NSArray *mapping = [collection KS_map:^NSString *(NSString *object) {
   // ex: NSString *mapping = [object reverse];
   return mapping;
 }];
@@ -69,7 +69,7 @@ NSArray *collection = [NSArray arrayWithObjects;@"Canada", @"Greece", @"Russia",
 **Dictionaries:**
 ```objc
 NSDictionary *collection = @{ @"Canada": @"Victoria", @"Russia": @"Moscow", @"Greece": @"Athens" };
-[collection KS_map:^NSString *(NSString *key, NSString *value) {
+NSDictionary *mapping = [collection KS_map:^NSString *(NSString *key, NSString *value) {
   // ex: NSString *mapping = [value reverse];
   return mapping;
 }];

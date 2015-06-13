@@ -146,7 +146,7 @@ BOOL any = [collection KS_any:^BOOL (NSString *object) {
 ```
 
 **Dictionaries:**
-```
+```objc
 NSDictionary *collection = @{ @"Canada" : @"Victoria", @"Greece": @"Athens", @"Russia": @"Moscow" };
 BOOL any = [collection KS_any:^BOOL (NSString *key, NSString *value) {
   return [key isEqualToString:@"..."];

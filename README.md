@@ -135,6 +135,7 @@ NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL]
 BOOL any = [collection KS_any:^BOOL (NSString *object) {
   return [object isEqualToString:@"..."];
 }];
+```
 
 **Arrays:**
 ```objc
@@ -160,6 +161,7 @@ NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL]
 BOOL all = [collection KS_all:^BOOL (NSString *object) {
   return [object isEqualToString:@"..."];
 }];
+```
 
 **Arrays:**
 ```objc
@@ -170,7 +172,7 @@ BOOL all = [collection KS_all:^BOOL (NSString *object) {
 ```
 
 **Dictionaries:**
-```
+```objc
 NSDictionary *collection = @{ @"Canada" : @"Victoria", @"Greece": @"Athens", @"Russia": @"Moscow" };
 BOOL all = [collection KS_all:^BOOL (NSString *key, NSString *value) {
   return [key isEqualToString:@"..."];

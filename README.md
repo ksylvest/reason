@@ -41,7 +41,7 @@ NSArray *collection = [NSArray arrayWithObjects;@"Canada", @"Greece", @"Russia",
 **Dictionaries:**
 ```objc
 NSDictionary *collection = @{ @"Canada": @"Victoria", @"Russia": @"Moscow", @"Greece": @"Athens" };
-[collection KS_each:^(NSString *object) {
+[collection KS_each:^(NSString *key, NSString *value) {
   // ...
 }];
 ```

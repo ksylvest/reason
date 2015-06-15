@@ -14,7 +14,6 @@ typedef id (^KSArrayMapBlock)(id object);
 typedef id (^KSArrayMapIBlock)(id object, NSUInteger index);
 typedef id (^KSArrayReduceBlock)(id memo, id object);
 typedef BOOL (^KSArrayTestBlock)(id object);
-typedef NSSet * (^KSArraySetBlock)(id object);
 
 /**
  A category for adding some additional functionaly to arrays.
@@ -101,6 +100,6 @@ typedef NSSet * (^KSArraySetBlock)(id object);
  @param block A block used to do the reduction.
  @return A mapped set.
  */
-- (NSSet *)KS_set:(KSArraySetBlock)block;
+- (NSSet *)KS_set:(KSArrayMapBlock)block;
 
 @end

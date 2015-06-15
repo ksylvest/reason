@@ -178,7 +178,7 @@
 
 #pragma mark - Converters
 
-- (NSSet *)KS_set:(KSDictionarySetBlock)block
+- (NSSet *)KS_set:(KSDictionaryMapBlock)block
 {
     NSMutableSet *results = [NSMutableSet setWithCapacity:self.count];
     
@@ -192,7 +192,7 @@
     return results;
 }
 
-- (NSArray *)KS_array:(KSDictionaryArrayBlock)block
+- (NSArray *)KS_array:(KSDictionaryMapBlock)block
 {
     NSMutableArray *results = [NSMutableArray arrayWithCapacity:self.count];
     

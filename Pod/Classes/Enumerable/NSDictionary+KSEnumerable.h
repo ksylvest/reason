@@ -14,8 +14,6 @@ typedef id (^KSDictionaryMapBlock)(id key, id value);
 typedef id (^KSDictionaryMapIBlock)(id key, id value, NSUInteger index);
 typedef id (^KSDictionaryReduceBlock)(id memo, id key, id value);
 typedef BOOL (^KSDictionaryTestBlock)(id key, id value);
-typedef NSSet * (^KSDictionarySetBlock)(id key, id value);
-typedef NSDictionary * (^KSDictionaryArrayBlock)(id key, id value);
 
 extern KSDictionaryTestBlock KSDictionaryTestBlockNegate(KSDictionaryTestBlock block);
 
@@ -103,14 +101,14 @@ extern KSDictionaryTestBlock KSDictionaryTestBlockNegate(KSDictionaryTestBlock b
  @param block A dictionary used to do the reducing of a key and value pair to an object.
  @return A mapped set.
  */
-- (NSSet *)KS_set:(KSDictionarySetBlock)block;
+- (NSSet *)KS_set:(KSDictionaryMapBlock)block;
 
 /**
  Helps to convert a dictionary to an array using a block on each key and value pair.
  @param block A dictionary used to do the reducing of a key and value pair to an object.
  @return A mapped array.
  */
-- (NSArray *)KS_array:(KSDictionaryArrayBlock)block;
+- (NSArray *)KS_array:(KSDictionaryMapBlock)block;
 
 /**
  Construct a new dictionary by merging the target and the parameter.

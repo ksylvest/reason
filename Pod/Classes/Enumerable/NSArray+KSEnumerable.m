@@ -158,7 +158,7 @@
 
 #pragma mark - Converters
 
-- (NSSet *)KS_set:(KSArraySetBlock)block
+- (NSSet *)KS_set:(KSArrayMapBlock)block
 {
     NSMutableSet *results = [NSMutableSet setWithCapacity:self.count];
     

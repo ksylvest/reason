@@ -28,7 +28,7 @@
     NSInteger index = 0;
     for (id key in self)
     {
-        id value = self[value];
+        id value = self[key];
         block(key, value, index++);
     }
 }

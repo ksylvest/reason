@@ -1,6 +1,6 @@
 PODS:
   - Expecta (1.0.0)
-  - KSReason (1.0.0)
+  - KSReason (1.0.5)
   - Specta (1.0.2)
 
 DEPENDENCIES:
@@ -14,7 +14,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: 32604574add2c46a36f8d2f716b6c5736eb75024
-  KSReason: 4325f3bba520ee517840bce2e1d2b752208e3eab
+  KSReason: f7c5564abce83b751432368f86f8f6c7a27d0c02
   Specta: 9cec98310dca411f7c7ffd6943552b501622abfe
 
 COCOAPODS: 0.37.2

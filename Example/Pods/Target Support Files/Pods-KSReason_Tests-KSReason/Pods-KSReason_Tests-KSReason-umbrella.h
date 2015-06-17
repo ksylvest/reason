@@ -1,7 +1,12 @@
 #import <UIKit/UIKit.h>
 
+#import "KSArchivable.h"
 #import "KSAssociation.h"
 #import "KSAttribute.h"
+#import "KSCollection.h"
+#import "KSIdentifiable.h"
+#import "KSModel.h"
+#import "KSParsable.h"
 #import "NSArray+KSEnumerable.h"
 #import "NSDictionary+KSEnumerable.h"
 #import "NSSet+KSEnumerable.h"

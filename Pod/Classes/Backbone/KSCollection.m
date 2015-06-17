@@ -50,12 +50,12 @@ NSString * const KSCollectionModelsKey = @"models";
 
 - (void)parse:(NSArray *)parameters
 {
-//    self.models = [parameters KS_map:^NSObject <KSParsable> *(NSDictionary *params) {
-//        NSObject <KSParsable> *object = [[self kind] new];
-//        [object parse:params];
-//        
-//        return object;
-//    }];
+    self.models = [parameters KS_map:^NSObject <KSParsable> *(NSDictionary *params) {
+        NSObject <KSParsable> *object = [[self kind] new];
+        [object parse:params];
+        
+        return object;
+    }];
 }
 
 ////////////////////////////////////////////////////////////////////////////////

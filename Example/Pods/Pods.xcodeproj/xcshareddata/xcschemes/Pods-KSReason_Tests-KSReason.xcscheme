@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4B35A70CC14A9D7C4C541DDC"
+               BlueprintIdentifier = "7DCB69A37437AE679AE8E395"
                BuildableName = "KSReason.framework"
                BlueprintName = "Pods-KSReason_Tests-KSReason"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -244,8 +244,8 @@ NSDictionary *filtered = [collection KS_reject:^BOOL (NSString *key, NSString *v
 ```objc
 NSDictionary *attributes = @{ @"name": @"John Smith", @"email": @"john.smith@mail.org", @"phone": @"+1 555-555-5555" };
 NSDictionary *validations = @{ 
-  @"name": @{ KSValidate.presence: @{} },
-  @"tagline": @{ KSValidate.presence: @{}, KSValidate.length: @{ KSValidate.minimum: @20, KSValidate.maximum: @80 } },
+  @"name": @{ KSValidate.presence: @{ KSValidate.message: @"must be entered" } },
+  @"tagline": @{ KSValidate.length: @{ KSValidate.minimum: @20, KSValidate.maximum: @80 } },
   @"email": @{ KSValidate.format: @{ KSValidate.with: KSValidateFormatEmail } },
   @"phone": @{ KSValidate.format: @{ KSValidate.with: KSValidateFormatPhone } },
   @"country": @{ KSValidate.inclusion: @{ KSValidate.of: @[@"Canada"] } },

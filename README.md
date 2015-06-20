@@ -263,7 +263,8 @@ validator.errors;
 // };
 
 validator.humanize;
-// @"tagline must be between 20 and 80 characters and cannot contain inapproriate language"
+// @"tagline must be between 20 and 80 characters, tagline cannot contain inapproriate language, email is formatted wrong, phone is formatted wrong and name can't be blank"
+```
 
 #### Length
 

@@ -392,7 +392,7 @@ The attribute names may also be addint the following to `Localizable.strings`:
 
 #### Dictionaries
 ```objc
-@{}.KS_exists;; // NO
+@{}.KS_exists; // NO
 @{ key: value }.KS_exists; // YES
 ```
 

@@ -322,6 +322,21 @@ validator.humanize;
 
 The attribute names may also be addint the following to `Localizable.strings`:
 
+#### Localizations
+
+**Messages:**
+```strings
+"is invalid": "...";
+"can't be blank": "...";
+"can't be present": "...";
+"must be exactly %@ characters": "...";
+"must be between %@ and %@ characters": "...";
+"must be a minimum of %@ characters": "...";
+"must be a maximum of %@ characters": "...";
+```
+
+**Attributes:**
+
 ```strings
 "ssn" = "social security number";
 ```

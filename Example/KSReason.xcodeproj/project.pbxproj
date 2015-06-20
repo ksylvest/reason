@@ -12,6 +12,7 @@
 		0A78EB9A1B2B8450006497F2 /* KSInflectionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A78EB991B2B8450006497F2 /* KSInflectionSpec.m */; };
 		0A8394151B34D3E9002793B9 /* KSExistentialismSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8394141B34D3E9002793B9 /* KSExistentialismSpec.m */; };
 		0A8394171B34D5C7002793B9 /* KSValidationsSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A8394161B34D5C7002793B9 /* KSValidationsSpec.m */; };
+		0A83943F1B351132002793B9 /* KSFormattingSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A83943E1B351132002793B9 /* KSFormattingSpec.m */; };
 		0AD945271B3231EA00DF4C41 /* KSBackboneSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD945261B3231DD00DF4C41 /* KSBackboneSpec.m */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -26,6 +27,7 @@
 		0A78EB991B2B8450006497F2 /* KSInflectionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSInflectionSpec.m; sourceTree = "<group>"; };
 		0A8394141B34D3E9002793B9 /* KSExistentialismSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSExistentialismSpec.m; sourceTree = "<group>"; };
 		0A8394161B34D5C7002793B9 /* KSValidationsSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSValidationsSpec.m; sourceTree = "<group>"; };
+		0A83943E1B351132002793B9 /* KSFormattingSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFormattingSpec.m; sourceTree = "<group>"; };
 		0AD945261B3231DD00DF4C41 /* KSBackboneSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSBackboneSpec.m; sourceTree = "<group>"; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -108,6 +110,7 @@
 				0A5C493D1B26458300D8DC02 /* KSParserSpec.m */,
 				0A8394161B34D5C7002793B9 /* KSValidationsSpec.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
+				0A83943E1B351132002793B9 /* KSFormattingSpec.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				0A8394171B34D5C7002793B9 /* KSValidationsSpec.m in Sources */,
 				0A78EB9A1B2B8450006497F2 /* KSInflectionSpec.m in Sources */,
 				0A5C49401B2645B500D8DC02 /* KSEnumerableSpec.m in Sources */,
+				0A83943F1B351132002793B9 /* KSFormattingSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,7 +24,7 @@
 
 - (void)KS_eachi:(KSIterableEachIBlock)block
 {
-    NSInteger index = 0;
+    NSUInteger index = 0;
     for (id object in self)
     {
         block(object, index++);
@@ -52,7 +52,7 @@
 {
     NSMutableArray *results = [NSMutableArray arrayWithCapacity:self.count];
     
-    NSInteger index = 0;
+    NSUInteger index = 0;
     for (id object in self)
     {
         id mapped = block(object, index++);
@@ -71,6 +71,17 @@
     for (id object in self)
     {
         memo = block(memo, object);
+    }
+    
+    return memo;
+}
+
+- (id)KS_reducei:(KSIterableReduceIBlock)block memo:(id)memo
+{
+    NSUInteger index = 0;
+    for (id object in self)
+    {
+        memo = block(memo, object, index++);
     }
     
     return memo;

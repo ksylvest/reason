@@ -12,7 +12,7 @@ SpecBegin(KSEnumerable)
 
 describe(@"KSEnumerable", ^{
     
-    describe(@".KS_each", ^{
+    describe(@"-KS_each:", ^{
         it (@"iterates a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
@@ -47,7 +47,7 @@ describe(@"KSEnumerable", ^{
         });
     });
     
-    describe(@".KS_map", ^{
+    describe(@"-KS_map:", ^{
         it (@"maps a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
@@ -79,7 +79,7 @@ describe(@"KSEnumerable", ^{
         });
     });
     
-    describe(@".KS_reduce", ^{
+    describe(@"-KS_reduce:", ^{
         it (@"reduces a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Greece", NULL];
             
@@ -111,7 +111,7 @@ describe(@"KSEnumerable", ^{
         });
     });
     
-    describe(@".KS_find", ^{
+    describe(@"-KS_find:", ^{
         it (@"searches a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
@@ -149,7 +149,7 @@ describe(@"KSEnumerable", ^{
         });
     });
     
-    describe(@".KS_any", ^{
+    describe(@"-KS_any:", ^{
         it (@"queries a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
@@ -187,7 +187,7 @@ describe(@"KSEnumerable", ^{
         });
     });
 
-    describe(@".KS_all", ^{
+    describe(@"-KS_any", ^{
         it (@"queries a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
@@ -225,7 +225,7 @@ describe(@"KSEnumerable", ^{
         });
     });
     
-    describe(@".KS_filter", ^{
+    describe(@"-KS_filter", ^{
         it (@"filters a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
@@ -264,7 +264,7 @@ describe(@"KSEnumerable", ^{
     });
     
     
-    describe(@".KS_reject", ^{
+    describe(@"-KS_reject:", ^{
         it (@"rejects a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
@@ -272,8 +272,8 @@ describe(@"KSEnumerable", ^{
                 return [object isEqualToString:@"Canada"] || [object isEqualToString:@"Russia"];
             }]).to.equal([NSSet setWithObject:@"Greece"]);
             
-            expect([collection KS_filter:^BOOL (NSString *object) {
-                return !object;
+            expect([collection KS_reject:^BOOL (NSString *object) {
+                return !!object;
             }]).to.equal([NSSet set]);
         });
         
@@ -284,8 +284,8 @@ describe(@"KSEnumerable", ^{
                 return [object isEqualToString:@"Canada"] || [object isEqualToString:@"Russia"];
             }]).to.equal([NSArray arrayWithObject:@"Greece"]);
             
-            expect([collection KS_filter:^BOOL (NSString *object) {
-                return !object;
+            expect([collection KS_reject:^BOOL (NSString *object) {
+                return !!object;
             }]).to.equal([NSArray array]);
         });
         
@@ -296,20 +296,20 @@ describe(@"KSEnumerable", ^{
                 return [key isEqualToString:@"Canada"] || [key isEqualToString:@"Russia"];
             }]).to.equal(@{ @"Greece": @"Athens" });
             
-            expect([collection KS_filter:^BOOL (NSString *key, NSString *value) {
-                return !key && !value;
+            expect([collection KS_reject:^BOOL (NSString *key, NSString *value) {
+                return key || value;
             }]).to.equal(@{});
         });
     });
     
-    describe(@".KS_keys", ^{
+    describe(@"-KS_keys", ^{
         it (@"exposes an accessor for all the keys", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
             expect(collection.KS_keys).to.contain(@"Greece");
         });
     });
 
-    describe(@".KS_values", ^{
+    describe(@"-KS_values", ^{
         it (@"exposes an accessor for all the values", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
             expect(collection.KS_values).to.contain(@"Athens");

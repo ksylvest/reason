@@ -12,7 +12,7 @@ SpecBegin(KSInflection)
 
 describe(@"KSInflection", ^{
     
-    describe(@".KS_pluralize", ^{
+    describe(@"-KS_pluralize", ^{
         it(@"handles a converting common strings from singular to plural", ^{
             
             NSDictionary *tests = @{
@@ -33,7 +33,7 @@ describe(@"KSInflection", ^{
         });
     });
     
-    describe(@".KS_singularize", ^{
+    describe(@"-KS_singularize", ^{
         it(@"handles a converting common strings from singular to plural", ^{
             
             NSDictionary *tests = @{

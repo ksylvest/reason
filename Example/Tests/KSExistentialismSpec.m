@@ -12,7 +12,7 @@ SpecBegin(KSExistentialism)
 
 describe(@"KSExistentialism", ^{
     
-    describe(@".KS_exists", ^{
+    describe(@"-KS_exists:", ^{
         it(@"is false for null", ^{
             expect([NSNull null].KS_exists).to.beFalsy;
         });

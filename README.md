@@ -239,6 +239,32 @@ NSDictionary *filtered = [collection KS_reject:^BOOL (NSString *key, NSString *v
 
 ### Validations
 
+#### Validate
+
+```objc
+NSDictionary *attributes = @{ @"name": @"John Smith", @"email": @"john.smith@mail.org", @"phone": @"+1 555-555-5555" };
+NSDictionary *validations = @{ 
+  @"name": @{ KSValidate.presence: @{} },
+  @"tagline": @{ KSValidate.presence: @{}, KSValidate.length: @{ KSValidate.minimum: @20, KSValidate.maximum: @80 } },
+  @"email": @{ KSValidate.format: @{ KSValidate.with: KSValidateFormatEmail } },
+  @"phone": @{ KSValidate.format: @{ KSValidate.with: KSValidateFormatPhone } },
+  @"country": @{ KSValidate.inclusion: @{ KSValidate.of: @[@"Canada"] } },
+  @"region": @{ KSValidate.exclusion: @{ KSValidate.of: @[@"PEI"] } },
+};
+
+KSValidator *validator = [KSValidator validator:validations];
+[validator validate:attributes];
+
+validator.errors; 
+// ex.: 
+// @{ 
+//   @"tagline": @[@"must be between 20 and 80 characters", @"cannot contain inappriate language"], 
+//   @"email": @[@"is formatted wrong"], @"phone": @[@"is formatted wrong"]
+// };
+
+validator.humanize;
+// @"tagline must be between 20 and 80 characters and cannot contain inapproriate language"
+
 #### Length
 
 ```objc
@@ -254,7 +280,7 @@ NSDictionary *filtered = [collection KS_reject:^BOOL (NSString *key, NSString *v
 [KSValidator length:@"test" maximum:5]; // YES
 ```
 
-### Format
+#### Format
 
 ```objc
 [KSValidator format:@"tester" with:KSValidationEmail]; // NO
@@ -267,30 +293,36 @@ NSDictionary *filtered = [collection KS_reject:^BOOL (NSString *key, NSString *v
 [KSValidator format:@"abcdefghijklmnopqrstuvwxyz" with:@"\\A[a-z]+\\z"]; // YES
 ```
 
-### Inclusion
+#### Inclusion
 
 ```objc
 [KSValidator inclusion:@"blue" collection:@[@"blue"]]; // YES
 [KSValidator inclusion:@"pink" collection:@[@"blue"]]; // NO
 ```
 
-### Exclusion
+#### Exclusion
 
 ```objc
 [KSValidator exclusion:@"blue" collection:@[@"blue"]]; // YES
 [KSValidator exclusion:@"pink" collection:@[@"blue"]]; // NO
 ```
 
-### Presence
+#### Presence
 
 ```objc
 [KSValidator presence:@"Greetings!"]; // YES
 ```
 
-### Absence
+#### Absence
 
 ```objc
 [KSValidator absence:@"Greetings!"]; // NO
+```
+
+The attribute names may also be addint the following to `Localizable.strings`:
+
+```strings
+"ssn" = "social security number";
 ```
 
 ### Inflections

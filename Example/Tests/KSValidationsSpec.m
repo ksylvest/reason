@@ -13,6 +13,31 @@ SpecBegin(KSValidations)
 describe(@"KSValidations", ^{
     
     describe(@"KSValidator", ^{
+
+        describe(@"+validator:", ^{
+            it(@"takes validations and can execute them", ^{
+
+                NSDictionary *attributes = @{
+                  @"name": @"",
+                  @"tagline": @"...",
+                };
+
+                NSDictionary *validations = @{
+                  @"name": @{ KSValidate.presence: @{} },
+                  @"email": @{ KSValidate.format: @{ KSValidate.with: KSValidateFormatEmail } },
+                  @"phone": @{ KSValidate.format: @{ KSValidate.with: KSValidateFormatPhone } },
+                  @"tagline": @{ KSValidate.length: @{ KSValidate.minimum: @20, KSValidate.maximum: @80 } },
+                };
+                
+                NSString *expected;
+                expected = @"name can't be blank and tagline must be between 20 and 80 characters";
+                
+                KSValidator *validator = [KSValidator validator:validations];
+                [validator validate:attributes];
+                expect(validator.humanize).to.equal(expected);
+
+            });
+        });
         
         describe(@"+length:is:", ^{
             it(@"is true if a length matches", ^{
@@ -43,12 +68,12 @@ describe(@"KSValidations", ^{
         
         describe(@"+format:with:", ^{
             it(@"matches with email", ^{
-                expect([KSValidator format:@"" with:KSValidationEmail]).to.beFalsy;
-                expect([KSValidator format:@"name@company.com" with:KSValidationEmail]).to.beTruthy;
+                expect([KSValidator format:@"" with:KSValidateFormatEmail]).to.beFalsy;
+                expect([KSValidator format:@"name@company.com" with:KSValidateFormatEmail]).to.beTruthy;
             });
             it(@"matches with phone", ^{
-                expect([KSValidator format:@"" with:KSValidationPhone]).to.beFalsy;
-                expect([KSValidator format:@"+1 555-555-5555" with:KSValidationPhone]).to.beTruthy;
+                expect([KSValidator format:@"" with:KSValidateFormatPhone]).to.beFalsy;
+                expect([KSValidator format:@"+1 555-555-5555" with:KSValidateFormatPhone]).to.beTruthy;
             });
         });
         

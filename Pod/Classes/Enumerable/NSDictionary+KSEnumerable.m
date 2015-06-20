@@ -25,7 +25,7 @@
 
 - (void)KS_eachi:(KSDictionaryEachIBlock)block
 {
-    NSInteger index = 0;
+    NSUInteger index = 0;
     for (id key in self)
     {
         id value = self[key];

@@ -13,6 +13,7 @@ typedef void (^KSIterableEachIBlock)(id object, NSUInteger index);
 typedef id (^KSIterableMapBlock)(id object);
 typedef id (^KSIterableMapIBlock)(id object, NSUInteger index);
 typedef id (^KSIterableReduceBlock)(id memo, id object);
+typedef id (^KSIterableReduceIBlock)(id memo, id object, NSUInteger index);
 typedef BOOL (^KSIterableTestBlock)(id object);
 
 @protocol KSIterable <NSObject>
@@ -50,6 +51,14 @@ typedef BOOL (^KSIterableTestBlock)(id object);
  @return The value of memo that is returned after each block execution.
  */
 - (id)KS_reduce:(KSIterableReduceBlock)block memo:(id)memo;
+
+/**
+ An implementation of map from the map / reduce pattern that includes a helpful iteration index.
+ @param block A block with an object that is execute on every entry and a memo.
+ @param memo The inital memo (NULL is fine).
+ @return The value of memo that is returned after each block execution.
+ */
+- (id)KS_reducei:(KSIterableReduceIBlock)block memo:(id)memo;
 
 /**
  An implementation of find using a block for searching.

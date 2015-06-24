@@ -316,6 +316,57 @@ describe(@"KSEnumerable", ^{
         });
     });
 
+    describe(@"-KS_minimum", ^{
+        it (@"exposes the minimum in an dictionary", ^{
+            NSDictionary *collection = @{ @"USD": @1.00, @"CDN": @1.25, @"EUR": @0.75 };
+            expect(collection.KS_minimum).to.equal(@0.75);
+        });
+        
+        it (@"exposes the minimum in an array", ^{
+            NSArray *collection = [NSArray arrayWithObjects:@1.00, @1.25, @0.75, NULL];
+            expect(collection.KS_minimum).to.equal(@0.75);
+        });
+        
+        it (@"exposes the minimum in an set", ^{
+            NSSet *collection = [NSSet setWithObjects:@1.0, @1.25, @0.75, NULL];
+            expect(collection.KS_minimum).to.equal(@0.75);
+        });
+    });
+    
+    describe(@"-KS_maximum", ^{
+        it (@"exposes the maximum in an dictionary", ^{
+            NSDictionary *collection = @{ @"USD": @1.0, @"CDN": @1.25, @"EUR": @0.75 };
+            expect(collection.KS_maximum).to.equal(@1.25);
+        });
+        
+        it (@"exposes the maximum in an array", ^{
+            NSArray *collection = [NSArray arrayWithObjects:@1.0, @1.25, @0.75, NULL];
+            expect(collection.KS_maximum).to.equal(@1.25);
+        });
+        
+        it (@"exposes the maximum in an set", ^{
+            NSSet *collection = [NSSet setWithObjects:@1.00, @1.25, @0.75, NULL];
+            expect(collection.KS_maximum).to.equal(@1.25);
+        });
+    });
+    
+    describe(@"-KS_sample", ^{
+        it (@"exposes the maximum in an dictionary", ^{
+            NSDictionary *collection = @{ @"USD": @1.0, @"CDN": @1.25, @"EUR": @0.75 };
+            expect(collection.KS_sample).to.beKindOf([NSNumber class]);
+        });
+        
+        it (@"exposes the maximum in an array", ^{
+            NSArray *collection = [NSArray arrayWithObjects:@1.0, @1.25, @0.75, NULL];
+            expect(collection.KS_sample).to.beKindOf([NSNumber class]);
+        });
+        
+        it (@"exposes the maximum in an set", ^{
+            NSSet *collection = [NSSet setWithObjects:@1.0, @1.25, @0.75, NULL];
+            expect(collection.KS_sample).to.beKindOf([NSNumber class]);
+        });
+    });
+    
 });
 
 SpecEnd

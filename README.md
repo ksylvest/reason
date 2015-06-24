@@ -18,6 +18,28 @@ pod "KSReason"
 
 ## Usage
 
+
+### Backbone
+
+**Backbone** is a component designed to implement models and collections (inspired by the web framework with the same name).
+
+#### Models
+
+```objc
+KSModel *model = [KSModel new];
+[model parse:@{ @"id": @"...", @"title": @"...", @"description": @"..." }];
+[model get:@"title"];
+[model get:@"description"];
+```
+
+#### Collections
+
+```objc
+KSCollection *collection = [KSCollection new];
+[collection parse:@[@{ @"id": @"...", @"title": @"...", @"description": @"..." }]];
+collection.models;
+```
+
 ### Enumerable
 
 #### Iterating
@@ -235,6 +257,68 @@ NSDictionary *filtered = [collection KS_reject:^BOOL (NSString *key, NSString *v
   // ex.: BOOL match = [key isEqualToString:@"..."] || [value isEqualToString:@"..."];
   return match;
 }];
+```
+
+#### Minimum
+
+**Sets:**
+```objc
+NSSet *collection = [NSSet setWithObjects:@1.0, @1.25, @0.75, NULL];
+collection.KS_minimum; //0.75
+```
+
+**Arrays:**
+```objc
+NSArray *collection = [NSArray arrayWithObjects:@1.00, @1.25, @0.75, NULL];
+collection.KS_minimum; // 0.75;
+```
+
+**Dictionaries:**
+```objc
+NSDictionary *collection = @{ @"USD": @1.00, @"CDN": @1.25, @"EUR": @0.75 };
+collection.KS_minimum; // 0.75
+```
+
+#### Maximum
+
+**Sets:**
+```objc
+it (@"exposes the maximum in an set", ^{
+NSSet *collection = [NSSet setWithObjects:@1.00, @1.25, @0.75, NULL];
+collection.KS_maximum; // 1.25
+```
+
+**Arrays:**
+```objc
+it (@"exposes the maximum in an array", ^{
+NSArray *collection = [NSArray arrayWithObjects:@1.0, @1.25, @0.75, NULL];
+collection.KS_maximum; //1.25);
+```
+
+**Dictionaries:**
+```objc
+NSDictionary *collection = @{ @"USD": @1.0, @"CDN": @1.25, @"EUR": @0.75 };
+collection.KS_maximum; //1.25
+```
+
+#### Sample
+
+**Sets:**
+```objc
+NSSet *collection = [NSSet setWithObjects:@1.0, @1.25, @0.75, NULL];
+collection.KS_sample; // (1.0 | 1.25 | 0.75)
+```
+
+**Arrays:**
+```objc
+NSArray *collection = [NSArray arrayWithObjects:@1.0, @1.25, @0.75, NULL];
+collection.KS_sample; // (1.0 | 1.25 | 0.75)
+```
+
+**Dictionaries:**
+```objc
+NSDictionary *collection = @{ @"USD": @1.0, @"CDN": @1.25, @"EUR": @0.75 };
+collection.KS_sample; // (1.0 | 1.25 | 0.75)
 ```
 
 ### Validations

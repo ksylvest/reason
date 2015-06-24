@@ -87,6 +87,12 @@ typedef BOOL (^KSIterableTestBlock)(id object);
 - (NSUInteger)KS_size;
 
 /**
+ Helper for determining if the iterable is empty
+ @return A boolean of `YES` if the count is zero or `NO` otherwise.
+ */
+- (BOOL)KS_empty;
+
+/**
  Look through each entry in the Iterable returning all entries that pass the block test.
  @param block A block that is used for filtering.
  @return A filtered Iterable.
@@ -99,5 +105,23 @@ typedef BOOL (^KSIterableTestBlock)(id object);
  @return A rejected Iterable.
  */
 - (instancetype)KS_reject:(KSIterableTestBlock)block;
+
+/**
+ Find the minimum (note: the elements must implement the `compare:`).
+ @return The minimum.
+ */
+- (id)KS_minimum;
+
+/**
+ Find the minimum (note: the elements must implement the `compare:`).
+ @return The maximum.
+ */
+- (id)KS_maximum;
+
+/**
+ Produce a random sample from the collection.
+ @return A sample.
+ */
+- (id)KS_sample;
 
 @end

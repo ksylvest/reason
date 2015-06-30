@@ -12,7 +12,7 @@ SpecBegin(KSInflection)
 
 describe(@"KSInflection", ^{
     
-    describe(@"-KS_pluralize", ^{
+    describe(@"-ks_pluralize", ^{
         it(@"handles a converting common strings from singular to plural", ^{
             
             NSDictionary *tests = @{
@@ -23,17 +23,17 @@ describe(@"KSInflection", ^{
                                     };
             
             for (NSString *test in tests)
-                expect(test.KS_pluralize).to.equal(tests[test]);
+                expect(test.ks_pluralize).to.equal(tests[test]);
 
             [KSInflector config:^(KSInflector *inflector) {
                 [inflector plural:@"ox$" replacement:@"oxen"];
             }];
             
-            expect(@"ox".KS_pluralize).to.equal(@"oxen");
+            expect(@"ox".ks_pluralize).to.equal(@"oxen");
         });
     });
     
-    describe(@"-KS_singularize", ^{
+    describe(@"-ks_singularize", ^{
         it(@"handles a converting common strings from singular to plural", ^{
             
             NSDictionary *tests = @{
@@ -44,13 +44,13 @@ describe(@"KSInflection", ^{
                                     };
             
             for (NSString *test in tests)
-                expect(test.KS_singularize).to.equal(tests[test]);
+                expect(test.ks_singularize).to.equal(tests[test]);
             
             [KSInflector config:^(KSInflector *inflector) {
                 [inflector singular:@"oxen$" replacement:@"ox"];
             }];
             
-            expect(@"oxen".KS_singularize).to.equal(@"ox");
+            expect(@"oxen".ks_singularize).to.equal(@"ox");
         });
     });
     

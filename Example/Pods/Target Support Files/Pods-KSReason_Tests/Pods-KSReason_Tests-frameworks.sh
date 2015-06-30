@@ -1,15 +1,15 @@
 #!/bin/sh
 set -e
 
-echo "mkdir -p ${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
-mkdir -p "${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+echo "mkdir -p ${CONFIGURATION_BUILD_DIR}/${FRAMEWORks_FOLDER_PATH}"
+mkdir -p "${CONFIGURATION_BUILD_DIR}/${FRAMEWORks_FOLDER_PATH}"
 
 SWIFT_STDLIB_PATH="${DT_TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}"
 
 install_framework()
 {
   local source="${BUILT_PRODUCTS_DIR}/Pods-KSReason_Tests/$1"
-  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}"
+  local destination="${CONFIGURATION_BUILD_DIR}/${FRAMEWORks_FOLDER_PATH}"
 
   if [ -L "${source}" ]; then
       echo "Symlinked..."
@@ -28,7 +28,7 @@ install_framework()
   local basename
   basename=$(echo $1 | sed -E s/\\..+// && exit ${PIPESTATUS[0]})
   local swift_runtime_libs
-  swift_runtime_libs=$(xcrun otool -LX "${CONFIGURATION_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/$1/${basename}" | grep --color=never @rpath/libswift | sed -E s/@rpath\\/\(.+dylib\).*/\\1/g | uniq -u  && exit ${PIPESTATUS[0]})
+  swift_runtime_libs=$(xcrun otool -LX "${CONFIGURATION_BUILD_DIR}/${FRAMEWORks_FOLDER_PATH}/$1/${basename}" | grep --color=never @rpath/libswift | sed -E s/@rpath\\/\(.+dylib\).*/\\1/g | uniq -u  && exit ${PIPESTATUS[0]})
   for lib in $swift_runtime_libs; do
     echo "rsync -auv \"${SWIFT_STDLIB_PATH}/${lib}\" \"${destination}\""
     rsync -auv "${SWIFT_STDLIB_PATH}/${lib}" "${destination}"

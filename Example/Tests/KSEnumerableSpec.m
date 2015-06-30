@@ -12,12 +12,12 @@ SpecBegin(KSEnumerable)
 
 describe(@"KSEnumerable", ^{
     
-    describe(@"-KS_each:", ^{
+    describe(@"-ks_each:", ^{
         it (@"iterates a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
             NSMutableSet *iterations = [NSMutableSet set];
-            [collection KS_each:^(NSString *object){
+            [collection ks_each:^(NSString *object){
                 [iterations addObject:object];
             }];
             
@@ -28,7 +28,7 @@ describe(@"KSEnumerable", ^{
             NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
             NSMutableArray *iterations = [NSMutableArray array];
-            [collection KS_each:^(NSString *object){
+            [collection ks_each:^(NSString *object){
                 [iterations addObject:object];
             }];
             
@@ -39,7 +39,7 @@ describe(@"KSEnumerable", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
             
             NSMutableDictionary *iterations = [NSMutableDictionary dictionary];
-            [collection KS_each:^(NSString *key, NSString *value){
+            [collection ks_each:^(NSString *key, NSString *value){
                 iterations[key] = value;
             }];
             
@@ -47,11 +47,11 @@ describe(@"KSEnumerable", ^{
         });
     });
     
-    describe(@"-KS_map:", ^{
+    describe(@"-ks_map:", ^{
         it (@"maps a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            NSSet *mapped = [collection KS_map:^NSString *(NSString *object){
+            NSSet *mapped = [collection ks_map:^NSString *(NSString *object){
                 return object;
             }];
             
@@ -61,7 +61,7 @@ describe(@"KSEnumerable", ^{
         it (@"maps an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            NSArray *mapped = [collection KS_map:^NSString *(NSString *object){
+            NSArray *mapped = [collection ks_map:^NSString *(NSString *object){
                 return object;
             }];
             
@@ -71,7 +71,7 @@ describe(@"KSEnumerable", ^{
         it (@"maps a dictionary", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
             
-            NSDictionary *mapped = [collection KS_map:^NSString *(NSString *key, NSString *value) {
+            NSDictionary *mapped = [collection ks_map:^NSString *(NSString *key, NSString *value) {
                 return value;
             }];
             
@@ -79,11 +79,11 @@ describe(@"KSEnumerable", ^{
         });
     });
     
-    describe(@"-KS_reduce:", ^{
+    describe(@"-ks_reduce:", ^{
         it (@"reduces a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Greece", NULL];
             
-            NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString *object){
+            NSString *reduction = [collection ks_reduce:^NSString *(NSString *memo, NSString *object){
                 return [NSString stringWithFormat:@"%@ %@", memo, object];
             } memo:@"reduction:"];
             
@@ -93,7 +93,7 @@ describe(@"KSEnumerable", ^{
         it (@"reduces an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@"Greece", NULL];
             
-            NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString *object) {
+            NSString *reduction = [collection ks_reduce:^NSString *(NSString *memo, NSString *object) {
                 return [NSString stringWithFormat:@"%@ %@", memo, object];
             } memo:@"reduction:"];
             
@@ -103,7 +103,7 @@ describe(@"KSEnumerable", ^{
         it (@"reduces a dictionary", ^{
             NSDictionary *collection = @{ @"Greece": @"Athens" };
             
-            NSString *reduction = [collection KS_reduce:^NSString *(NSString *memo, NSString *key, NSString *value) {
+            NSString *reduction = [collection ks_reduce:^NSString *(NSString *memo, NSString *key, NSString *value) {
                 return [NSString stringWithFormat:@"%@ %@", memo, value];
             } memo:@"reduction:"];
             
@@ -111,15 +111,15 @@ describe(@"KSEnumerable", ^{
         });
     });
     
-    describe(@"-KS_find:", ^{
+    describe(@"-ks_find:", ^{
         it (@"searches a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_find:^BOOL (NSString *object) {
+            expect([collection ks_find:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Greece"];
             }]).to.equal(@"Greece");
             
-            expect([collection KS_find:^BOOL (NSString *object) {
+            expect([collection ks_find:^BOOL (NSString *object) {
                 return [object isEqualToString:@"pi"];
             }]).to.beNil;
         });
@@ -127,11 +127,11 @@ describe(@"KSEnumerable", ^{
         it (@"searches an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_find:^BOOL (NSString *object) {
+            expect([collection ks_find:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Greece"];
             }]).to.equal(@"Greece");
             
-            expect([collection KS_find:^BOOL (NSString *object) {
+            expect([collection ks_find:^BOOL (NSString *object) {
                 return [object isEqualToString:@"pi"];
             }]).to.beNil;
         });
@@ -139,25 +139,25 @@ describe(@"KSEnumerable", ^{
         it (@"searches a dictionary", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
             
-            expect([collection KS_find:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_find:^BOOL (NSString *key, NSString *value) {
                 return [key isEqualToString:@"Greece"];
             }]).to.equal(@"Athens");
             
-            expect([collection KS_find:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_find:^BOOL (NSString *key, NSString *value) {
                 return [key isEqualToString:@"pi"];
             }]).to.beNil;
         });
     });
     
-    describe(@"-KS_any:", ^{
+    describe(@"-ks_any:", ^{
         it (@"queries a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_any:^BOOL (NSString *object) {
+            expect([collection ks_any:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Greece"];
             }]).to.beTruthy;
             
-            expect([collection KS_any:^BOOL (NSString *object) {
+            expect([collection ks_any:^BOOL (NSString *object) {
                 return [object isEqualToString:@"pi"];
             }]).to.beFalsy;
         });
@@ -165,11 +165,11 @@ describe(@"KSEnumerable", ^{
         it (@"queries an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_any:^BOOL (NSString *object) {
+            expect([collection ks_any:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Greece"];
             }]).to.beTruthy;
             
-            expect([collection KS_any:^BOOL (NSString *object) {
+            expect([collection ks_any:^BOOL (NSString *object) {
                 return [object isEqualToString:@"pi"];
             }]).to.beFalsy;
         });
@@ -177,25 +177,25 @@ describe(@"KSEnumerable", ^{
         it (@"queries a dictionary", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
             
-            expect([collection KS_any:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_any:^BOOL (NSString *key, NSString *value) {
                 return [key isEqualToString:@"Greece"];
             }]).to.beTruthy;
             
-            expect([collection KS_any:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_any:^BOOL (NSString *key, NSString *value) {
                 return [key isEqualToString:@"pi"];
             }]).to.beFalsy;
         });
     });
 
-    describe(@"-KS_any", ^{
+    describe(@"-ks_any", ^{
         it (@"queries a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_any:^BOOL (NSString *object) {
+            expect([collection ks_any:^BOOL (NSString *object) {
                 return !!object;
             }]).to.beTruthy;
             
-            expect([collection KS_any:^BOOL (NSString *object) {
+            expect([collection ks_any:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Greece"];
             }]).to.beFalsy;
         });
@@ -203,11 +203,11 @@ describe(@"KSEnumerable", ^{
         it (@"queries an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_any:^BOOL (NSString *object) {
+            expect([collection ks_any:^BOOL (NSString *object) {
                 return !!object;
             }]).to.beTruthy;
             
-            expect([collection KS_any:^BOOL (NSString *object) {
+            expect([collection ks_any:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Greece"];
             }]).to.beFalsy;
         });
@@ -215,25 +215,25 @@ describe(@"KSEnumerable", ^{
         it (@"queries a dictionary", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
             
-            expect([collection KS_any:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_any:^BOOL (NSString *key, NSString *value) {
                 return key && value;
             }]).to.beTruthy;
             
-            expect([collection KS_any:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_any:^BOOL (NSString *key, NSString *value) {
                 return [key isEqualToString:@"Greece"] && [value isEqualToString:@"Greece"];
             }]).to.beFalsy;
         });
     });
     
-    describe(@"-KS_filter", ^{
+    describe(@"-ks_filter", ^{
         it (@"filters a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_filter:^BOOL (NSString *object) {
+            expect([collection ks_filter:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Greece"];
             }]).to.equal([NSSet setWithObject:@"Greece"]);
             
-            expect([collection KS_filter:^BOOL (NSString *object) {
+            expect([collection ks_filter:^BOOL (NSString *object) {
                 return [object isEqualToString:@"pi"];
             }]).to.equal([NSSet set]);
         });
@@ -241,11 +241,11 @@ describe(@"KSEnumerable", ^{
         it (@"filters an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_filter:^BOOL (NSString *object) {
+            expect([collection ks_filter:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Greece"];
             }]).to.equal([NSArray arrayWithObject:@"Greece"]);
             
-            expect([collection KS_filter:^BOOL (NSString *object) {
+            expect([collection ks_filter:^BOOL (NSString *object) {
                 return [object isEqualToString:@"pi"];
             }]).to.equal([NSArray array]);
         });
@@ -253,26 +253,26 @@ describe(@"KSEnumerable", ^{
         it (@"filters a dictionary", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
             
-            expect([collection KS_filter:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_filter:^BOOL (NSString *key, NSString *value) {
                 return [key isEqualToString:@"Greece"];
             }]).to.equal(@{ @"Greece": @"Athens" });
             
-            expect([collection KS_filter:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_filter:^BOOL (NSString *key, NSString *value) {
                 return [key isEqualToString:@"pi"];
             }]).to.equal(@{});
         });
     });
     
     
-    describe(@"-KS_reject:", ^{
+    describe(@"-ks_reject:", ^{
         it (@"rejects a set", ^{
             NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_reject:^BOOL (NSString *object) {
+            expect([collection ks_reject:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Canada"] || [object isEqualToString:@"Russia"];
             }]).to.equal([NSSet setWithObject:@"Greece"]);
             
-            expect([collection KS_reject:^BOOL (NSString *object) {
+            expect([collection ks_reject:^BOOL (NSString *object) {
                 return !!object;
             }]).to.equal([NSSet set]);
         });
@@ -280,11 +280,11 @@ describe(@"KSEnumerable", ^{
         it (@"rejects an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@"Canada", @"Greece", @"Russia", NULL];
             
-            expect([collection KS_reject:^BOOL (NSString *object) {
+            expect([collection ks_reject:^BOOL (NSString *object) {
                 return [object isEqualToString:@"Canada"] || [object isEqualToString:@"Russia"];
             }]).to.equal([NSArray arrayWithObject:@"Greece"]);
             
-            expect([collection KS_reject:^BOOL (NSString *object) {
+            expect([collection ks_reject:^BOOL (NSString *object) {
                 return !!object;
             }]).to.equal([NSArray array]);
         });
@@ -292,78 +292,78 @@ describe(@"KSEnumerable", ^{
         it (@"rejects a dictionary", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
             
-            expect([collection KS_reject:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_reject:^BOOL (NSString *key, NSString *value) {
                 return [key isEqualToString:@"Canada"] || [key isEqualToString:@"Russia"];
             }]).to.equal(@{ @"Greece": @"Athens" });
             
-            expect([collection KS_reject:^BOOL (NSString *key, NSString *value) {
+            expect([collection ks_reject:^BOOL (NSString *key, NSString *value) {
                 return key || value;
             }]).to.equal(@{});
         });
     });
     
-    describe(@"-KS_keys", ^{
+    describe(@"-ks_keys", ^{
         it (@"exposes an accessor for all the keys", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
-            expect(collection.KS_keys).to.contain(@"Greece");
+            expect(collection.ks_keys).to.contain(@"Greece");
         });
     });
 
-    describe(@"-KS_values", ^{
+    describe(@"-ks_values", ^{
         it (@"exposes an accessor for all the values", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };
-            expect(collection.KS_values).to.contain(@"Athens");
+            expect(collection.ks_values).to.contain(@"Athens");
         });
     });
 
-    describe(@"-KS_minimum", ^{
+    describe(@"-ks_minimum", ^{
         it (@"exposes the minimum in an dictionary", ^{
             NSDictionary *collection = @{ @"USD": @1.00, @"CDN": @1.25, @"EUR": @0.75 };
-            expect(collection.KS_minimum).to.equal(@0.75);
+            expect(collection.ks_minimum).to.equal(@0.75);
         });
         
         it (@"exposes the minimum in an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@1.00, @1.25, @0.75, NULL];
-            expect(collection.KS_minimum).to.equal(@0.75);
+            expect(collection.ks_minimum).to.equal(@0.75);
         });
         
         it (@"exposes the minimum in an set", ^{
             NSSet *collection = [NSSet setWithObjects:@1.0, @1.25, @0.75, NULL];
-            expect(collection.KS_minimum).to.equal(@0.75);
+            expect(collection.ks_minimum).to.equal(@0.75);
         });
     });
     
-    describe(@"-KS_maximum", ^{
+    describe(@"-ks_maximum", ^{
         it (@"exposes the maximum in an dictionary", ^{
             NSDictionary *collection = @{ @"USD": @1.0, @"CDN": @1.25, @"EUR": @0.75 };
-            expect(collection.KS_maximum).to.equal(@1.25);
+            expect(collection.ks_maximum).to.equal(@1.25);
         });
         
         it (@"exposes the maximum in an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@1.0, @1.25, @0.75, NULL];
-            expect(collection.KS_maximum).to.equal(@1.25);
+            expect(collection.ks_maximum).to.equal(@1.25);
         });
         
         it (@"exposes the maximum in an set", ^{
             NSSet *collection = [NSSet setWithObjects:@1.00, @1.25, @0.75, NULL];
-            expect(collection.KS_maximum).to.equal(@1.25);
+            expect(collection.ks_maximum).to.equal(@1.25);
         });
     });
     
-    describe(@"-KS_sample", ^{
+    describe(@"-ks_sample", ^{
         it (@"exposes the maximum in an dictionary", ^{
             NSDictionary *collection = @{ @"USD": @1.0, @"CDN": @1.25, @"EUR": @0.75 };
-            expect(collection.KS_sample).to.beKindOf([NSNumber class]);
+            expect(collection.ks_sample).to.beKindOf([NSNumber class]);
         });
         
         it (@"exposes the maximum in an array", ^{
             NSArray *collection = [NSArray arrayWithObjects:@1.0, @1.25, @0.75, NULL];
-            expect(collection.KS_sample).to.beKindOf([NSNumber class]);
+            expect(collection.ks_sample).to.beKindOf([NSNumber class]);
         });
         
         it (@"exposes the maximum in an set", ^{
             NSSet *collection = [NSSet setWithObjects:@1.0, @1.25, @0.75, NULL];
-            expect(collection.KS_sample).to.beKindOf([NSNumber class]);
+            expect(collection.ks_sample).to.beKindOf([NSNumber class]);
         });
     });
     

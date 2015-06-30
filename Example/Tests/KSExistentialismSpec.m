@@ -12,45 +12,45 @@ SpecBegin(KSExistentialism)
 
 describe(@"KSExistentialism", ^{
     
-    describe(@"-KS_exists:", ^{
+    describe(@"-ks_exists:", ^{
         it(@"is false for null", ^{
-            expect([NSNull null].KS_exists).to.beFalsy;
+            expect([NSNull null].ks_exists).to.beFalsy;
         });
         
         it(@"is true for an object", ^{
-            expect([NSObject new].KS_exists).to.beTruthy;
+            expect([NSObject new].ks_exists).to.beTruthy;
         });
 
         it(@"is false for a blank string", ^{
-            expect(@"".KS_exists).to.beFalsy;
+            expect(@"".ks_exists).to.beFalsy;
         });
         
         it(@"is true for a non blank string", ^{
-            expect(@"Greetings!".KS_exists).to.beTruthy;
+            expect(@"Greetings!".ks_exists).to.beTruthy;
         });
         
         it(@"is false for a blank array", ^{
-            expect([NSArray array].KS_exists).to.beFalsy;
+            expect([NSArray array].ks_exists).to.beFalsy;
         });
         
         it(@"is true for a non blank array", ^{
-            expect([NSArray arrayWithObject:@"Greetings"].KS_exists).to.beTruthy;
+            expect([NSArray arrayWithObject:@"Greetings"].ks_exists).to.beTruthy;
         });
         
         it(@"is false for a blank set", ^{
-            expect([NSSet set].KS_exists).to.beFalsy;
+            expect([NSSet set].ks_exists).to.beFalsy;
         });
         
         it(@"is true for a non blank set", ^{
-            expect([NSSet setWithObject:@"Greetings"].KS_exists).to.beTruthy;
+            expect([NSSet setWithObject:@"Greetings"].ks_exists).to.beTruthy;
         });
         
         it(@"is false for a blank dictionary", ^{
-            expect(@{}.KS_exists).to.beFalsy;
+            expect(@{}.ks_exists).to.beFalsy;
         });
         
         it(@"is true for a non blank dicitonary", ^{
-            expect(@{ @"greeting": @"Greetings" }.KS_exists).to.beTruthy;
+            expect(@{ @"greeting": @"Greetings" }.ks_exists).to.beTruthy;
         });
     });
     

@@ -39,7 +39,7 @@ describe(@"KSBackbone", ^{
                 
                 expect(collection.models).to.beKindOf([NSArray class]);
                 
-                KSModel *model = [collection.models KS_find:^BOOL (KSModel *model) { return !!model; }];
+                KSModel *model = [collection.models ks_find:^BOOL (KSModel *model) { return !!model; }];
 
                 expect([model get:@"title"]).to.equal(title);
                 expect([model get:@"description"]).to.equal(description);

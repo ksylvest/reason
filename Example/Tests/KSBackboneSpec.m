@@ -14,7 +14,7 @@ SpecBegin(KSBackbone)
 describe(@"KSBackbone", ^{
     
     describe(@"KSModel", ^{
-        describe (@"-parse:", ^{
+        describe(@"-parse:", ^{
             it (@"parses a dictionary into attributes", ^{
                 KSModel *model = [KSModel new];
                 
@@ -24,6 +24,28 @@ describe(@"KSBackbone", ^{
                 
                 expect([model get:@"title"]).to.equal(title);
                 expect([model get:@"description"]).to.equal(description);
+            });
+        });
+        
+        describe(@"-trigger:", ^{
+            it (@"supports on and off on an object", ^{
+                __block KSModel *model = [KSModel new];
+                __block BOOL executed;
+
+                void (^callback)(id) = ^(id object){
+                    expect(object).to.equal(model);
+                    executed = !!object;
+                };
+                
+                executed = NO;
+                [model on:@"change" callback:callback];
+                [model trigger:@"change"];
+                expect(executed).to.equal(YES);
+                
+                executed = NO;
+                [model off:@"change" callback:callback];
+                [model trigger:@"change"];
+                expect(executed).to.equal(NO);
             });
         });
     });
@@ -43,6 +65,28 @@ describe(@"KSBackbone", ^{
 
                 expect([model get:@"title"]).to.equal(title);
                 expect([model get:@"description"]).to.equal(description);
+            });
+        });
+        
+        describe(@"-trigger:", ^{
+            it (@"supports on and off on an object", ^{
+                __block KSCollection *collection = [KSCollection new];
+                __block BOOL executed;
+                
+                void (^callback)(id) = ^(id object){
+                    expect(object).to.equal(collection);
+                    executed = !!object;
+                };
+                
+                executed = NO;
+                [collection on:@"change" callback:callback];
+                [collection trigger:@"change"];
+                expect(executed).to.equal(YES);
+                
+                executed = NO;
+                [collection off:@"change" callback:callback];
+                [collection trigger:@"change"];
+                expect(executed).to.equal(NO);
             });
         });
     });

@@ -4,6 +4,7 @@
 #import "KSAssociation.h"
 #import "KSAttribute.h"
 #import "KSCollection.h"
+#import "KSEvents.h"
 #import "KSIdentifiable.h"
 #import "KSModel.h"
 #import "KSParsable.h"

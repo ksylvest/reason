@@ -8,6 +8,7 @@
 #import "KSIdentifiable.h"
 #import "KSModel.h"
 #import "KSParsable.h"
+#import "NSObject+KSEvents.h"
 #import "KSIterable.h"
 #import "NSArray+KSEnumerable.h"
 #import "NSDictionary+KSEnumerable.h"

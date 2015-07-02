@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(short, KSInflectorKind) {
+    KSInflectorKindPlural,
+    KSINflectorKindSingular,
+};
+
 @interface KSInflector : NSObject
 
 /**
@@ -55,5 +60,20 @@
  @return A converted string.
  */
 - (NSString *)singularize:(NSString *)string;
+
+/**
+ Add in a count string format.
+ @param count A count value.
+ @param string A string value.
+ @return A converted string.
+ */
+- (NSString *)inflect:(NSInteger)count string:(NSString *)string;
+
+/**
+ Helper for determining if a count is singular or plural.
+ @param count A count value.
+ @return A singular or plural enum.
+ */
+- (KSInflectorKind)kind:(NSInteger)count;
 
 @end

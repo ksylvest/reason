@@ -456,18 +456,24 @@ The attribute names may also be addint the following to `Localizable.strings`:
 #### Pluralize
 
 ```objc
-[@"cookie" ks_pluralize]; // cookies
-[@"cherry" ks_pluralize]; // cherries
-[@"potato" ks_pluralize]; // potatoes
+[@"cookie" ks_pluralize]; // "cookies"
+[@"cherry" ks_pluralize]; // "cherries"
+[@"potato" ks_pluralize]; // "potatoes"
 ```
 
 #### Singularize
 
 ```objc
-[@"cookies" ks_singularize]; // cookie
-[@"cherries" ks_pluralize]; // cherry
-[@"potatoes" ks_pluralize]; // potato
+[@"cookies" ks_singularize]; // "cookie"
+[@"cherries" ks_singularize]; // "cherry"
+[@"potatoes" ks_singularize]; // "potato"
 ```
+
+#### Inflecting
+
+[KSInflector.shared inflect:1 string:@"star"]; // "1 star"
+[KSInflector.shared inflect:2 string:@"star"]; // "2 stars"
+[KSInflector.shared inflect:3 string:@"star"]; // "3 stars"
 
 #### Advanced
 

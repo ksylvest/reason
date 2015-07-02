@@ -150,4 +150,24 @@
     return string;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Inflections
+
+- (NSString *)inflect:(NSInteger)count string:(NSString *)string
+{
+    switch ([self kind:count])
+    {
+        case KSInflectorKindPlural:
+            return [NSString stringWithFormat:@"%@ %@", @(count), [self pluralize:string]];
+        case KSINflectorKindSingular:
+            return [NSString stringWithFormat:@"%@ %@", @(count), [self singularize:string]];
+    }
+}
+
+- (KSInflectorKind)kind:(NSInteger)count
+{
+    return count != 1 ? KSInflectorKindPlural : KSINflectorKindSingular;
+}
+
 @end

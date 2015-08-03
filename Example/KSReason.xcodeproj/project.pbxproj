@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A3BE1F01B6C50F60085B92E /* KSStatefulSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BE1EF1B6C50F60085B92E /* KSStatefulSpec.m */; };
 		0A5C493E1B26458300D8DC02 /* KSParserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C493D1B26458300D8DC02 /* KSParserSpec.m */; };
 		0A5C49401B2645B500D8DC02 /* KSEnumerableSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5C493F1B2645B500D8DC02 /* KSEnumerableSpec.m */; };
 		0A78EB9A1B2B8450006497F2 /* KSInflectionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A78EB991B2B8450006497F2 /* KSInflectionSpec.m */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A3BE1EF1B6C50F60085B92E /* KSStatefulSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStatefulSpec.m; sourceTree = "<group>"; };
 		0A5C493D1B26458300D8DC02 /* KSParserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSParserSpec.m; sourceTree = "<group>"; };
 		0A5C493F1B2645B500D8DC02 /* KSEnumerableSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSEnumerableSpec.m; sourceTree = "<group>"; };
 		0A78EB991B2B8450006497F2 /* KSInflectionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSInflectionSpec.m; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				0A8394161B34D5C7002793B9 /* KSValidationsSpec.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				0A83943E1B351132002793B9 /* KSFormattingSpec.m */,
+				0A3BE1EF1B6C50F60085B92E /* KSStatefulSpec.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				0AD945271B3231EA00DF4C41 /* KSBackboneSpec.m in Sources */,
 				0A8394151B34D3E9002793B9 /* KSExistentialismSpec.m in Sources */,
 				0A8394171B34D5C7002793B9 /* KSValidationsSpec.m in Sources */,
+				0A3BE1F01B6C50F60085B92E /* KSStatefulSpec.m in Sources */,
 				0A78EB9A1B2B8450006497F2 /* KSInflectionSpec.m in Sources */,
 				0A5C49401B2645B500D8DC02 /* KSEnumerableSpec.m in Sources */,
 				0A83943F1B351132002793B9 /* KSFormattingSpec.m in Sources */,

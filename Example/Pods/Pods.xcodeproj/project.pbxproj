@@ -18,7 +18,20 @@
 		0686044A06FE18182314B117 /* EXPExpect.m in Sources */ = {isa = PBXBuildFile; fileRef = CBEA46E64C17552402ADF14C /* EXPExpect.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		098E898A1894DEC31678EC2B /* EXPBlockDefinedMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F386161B707F04F7230E1 /* EXPBlockDefinedMatcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0A367E4F618423FE4D3A6C67 /* KSArchivable.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E103A38872FCDDC5B37157F /* KSArchivable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A3BE1D11B6C45F00085B92E /* KSStateful.h in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BE1D01B6C45F00085B92E /* KSStateful.h */; };
 		0AAAB18D0287021D51774508 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC6D8F8FEF62DD8345E1EFF /* XCTest.framework */; };
+		0AD37F6B1B6EADB9009B2BC7 /* KSFSM.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD37F5F1B6EADB9009B2BC7 /* KSFSM.h */; };
+		0AD37F6C1B6EADB9009B2BC7 /* KSFSM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD37F601B6EADB9009B2BC7 /* KSFSM.m */; };
+		0AD37F6D1B6EADB9009B2BC7 /* KSGuard.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD37F611B6EADB9009B2BC7 /* KSGuard.h */; };
+		0AD37F6E1B6EADB9009B2BC7 /* KSGuard.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD37F621B6EADB9009B2BC7 /* KSGuard.m */; };
+		0AD37F6F1B6EADB9009B2BC7 /* KSState.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD37F631B6EADB9009B2BC7 /* KSState.h */; };
+		0AD37F701B6EADB9009B2BC7 /* KSState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD37F641B6EADB9009B2BC7 /* KSState.m */; };
+		0AD37F711B6EADB9009B2BC7 /* KSStates.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD37F651B6EADB9009B2BC7 /* KSStates.h */; };
+		0AD37F721B6EADB9009B2BC7 /* KSStates.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD37F661B6EADB9009B2BC7 /* KSStates.m */; };
+		0AD37F731B6EADB9009B2BC7 /* KSTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD37F671B6EADB9009B2BC7 /* KSTransition.h */; };
+		0AD37F741B6EADB9009B2BC7 /* KSTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD37F681B6EADB9009B2BC7 /* KSTransition.m */; };
+		0AD37F751B6EADB9009B2BC7 /* KSTransitions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AD37F691B6EADB9009B2BC7 /* KSTransitions.h */; };
+		0AD37F761B6EADB9009B2BC7 /* KSTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD37F6A1B6EADB9009B2BC7 /* KSTransitions.m */; };
 		0B8ECDA5E5818A6D0651F068 /* EXPMatchers+raise.h in Headers */ = {isa = PBXBuildFile; fileRef = 4190FBF62A6FADDE2F133912 /* EXPMatchers+raise.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0D1BAFA26EA126397A2CC6C4 /* NSValue+Expecta.m in Sources */ = {isa = PBXBuildFile; fileRef = B53C65ACA84E28269EDE79EE /* NSValue+Expecta.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0DF86B16D3AF5F7AE4F4B346 /* EXPMatchers+beTruthy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF5914F29934102DF9B5130 /* EXPMatchers+beTruthy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -245,6 +258,19 @@
 		0481CBE9B0D955B90BFD66EE /* NSArray+KSExistentialism.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSArray+KSExistentialism.m"; sourceTree = "<group>"; };
 		070311C0A51C78F7844896B7 /* KSModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KSModel.h; sourceTree = "<group>"; };
 		098C84A262BF84D2EF341724 /* NSDictionary+KSParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+KSParser.h"; sourceTree = "<group>"; };
+		0A3BE1D01B6C45F00085B92E /* KSStateful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStateful.h; sourceTree = "<group>"; };
+		0AD37F5F1B6EADB9009B2BC7 /* KSFSM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSFSM.h; sourceTree = "<group>"; };
+		0AD37F601B6EADB9009B2BC7 /* KSFSM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSFSM.m; sourceTree = "<group>"; };
+		0AD37F611B6EADB9009B2BC7 /* KSGuard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSGuard.h; sourceTree = "<group>"; };
+		0AD37F621B6EADB9009B2BC7 /* KSGuard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSGuard.m; sourceTree = "<group>"; };
+		0AD37F631B6EADB9009B2BC7 /* KSState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSState.h; sourceTree = "<group>"; };
+		0AD37F641B6EADB9009B2BC7 /* KSState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSState.m; sourceTree = "<group>"; };
+		0AD37F651B6EADB9009B2BC7 /* KSStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSStates.h; sourceTree = "<group>"; };
+		0AD37F661B6EADB9009B2BC7 /* KSStates.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSStates.m; sourceTree = "<group>"; };
+		0AD37F671B6EADB9009B2BC7 /* KSTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTransition.h; sourceTree = "<group>"; };
+		0AD37F681B6EADB9009B2BC7 /* KSTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTransition.m; sourceTree = "<group>"; };
+		0AD37F691B6EADB9009B2BC7 /* KSTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSTransitions.h; sourceTree = "<group>"; };
+		0AD37F6A1B6EADB9009B2BC7 /* KSTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSTransitions.m; sourceTree = "<group>"; };
 		0B3AAC92065A9E0E287B5968 /* EXPMatchers+beSupersetOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beSupersetOf.m"; path = "Expecta/Matchers/EXPMatchers+beSupersetOf.m"; sourceTree = "<group>"; };
 		0D6A751606CADF90058CC78E /* EXPMatchers+conformTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+conformTo.m"; path = "Expecta/Matchers/EXPMatchers+conformTo.m"; sourceTree = "<group>"; };
 		0D9BE2B019D91219454E66C2 /* EXPMatchers+beInTheRangeOf.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beInTheRangeOf.m"; path = "Expecta/Matchers/EXPMatchers+beInTheRangeOf.m"; sourceTree = "<group>"; };
@@ -501,6 +527,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AD37F5E1B6EADB9009B2BC7 /* Stateful */ = {
+			isa = PBXGroup;
+			children = (
+				0AD37F5F1B6EADB9009B2BC7 /* KSFSM.h */,
+				0AD37F601B6EADB9009B2BC7 /* KSFSM.m */,
+				0AD37F611B6EADB9009B2BC7 /* KSGuard.h */,
+				0AD37F621B6EADB9009B2BC7 /* KSGuard.m */,
+				0AD37F631B6EADB9009B2BC7 /* KSState.h */,
+				0AD37F641B6EADB9009B2BC7 /* KSState.m */,
+				0AD37F651B6EADB9009B2BC7 /* KSStates.h */,
+				0AD37F661B6EADB9009B2BC7 /* KSStates.m */,
+				0AD37F671B6EADB9009B2BC7 /* KSTransition.h */,
+				0AD37F681B6EADB9009B2BC7 /* KSTransition.m */,
+				0AD37F691B6EADB9009B2BC7 /* KSTransitions.h */,
+				0AD37F6A1B6EADB9009B2BC7 /* KSTransitions.m */,
+			);
+			path = Stateful;
+			sourceTree = "<group>";
+		};
 		2E85E777C5E2E7ED447442F6 /* Expecta */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,6 +639,11 @@
 		314A414CC9AF6C7DE99926AD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				79CE2F147E0D3CF389FC8467 /* Backbone */,
+				514332ECDD22979757E13ECE /* Enumerable */,
+				E22A68528667B23AE4C5CB55 /* Existentialism */,
+				2E88EBC33C1054502AF637E6 /* Formatting */,
+				B57CD6A3D6C0EB829B266D29 /* Inflections */,
 				7B0AFCD96E74AF72F4C52953 /* KSBackbone.h */,
 				F30E774D66F17EE15D73A946 /* KSCallback.h */,
 				CFE3DA361208247433AAB012 /* KSEnumerable.h */,
@@ -602,13 +652,10 @@
 				B134A666BB435A12F0690D6C /* KSInflection.h */,
 				FEC32A6B01BE3A4E52E7D14B /* KSParser.h */,
 				5DD667576C6B396D8A40AA0A /* KSReason.h */,
+				0A3BE1D01B6C45F00085B92E /* KSStateful.h */,
 				85ADB0B3D9F8DC247142B38B /* KSValidations.h */,
-				79CE2F147E0D3CF389FC8467 /* Backbone */,
-				514332ECDD22979757E13ECE /* Enumerable */,
-				E22A68528667B23AE4C5CB55 /* Existentialism */,
-				2E88EBC33C1054502AF637E6 /* Formatting */,
-				B57CD6A3D6C0EB829B266D29 /* Inflections */,
 				C21C70CC66A90E01BD1D50C9 /* Parser */,
+				0AD37F5E1B6EADB9009B2BC7 /* Stateful */,
 				46629A941ECE9FC29D297A71 /* Validations */,
 			);
 			path = Classes;
@@ -937,11 +984,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AD37F6B1B6EADB9009B2BC7 /* KSFSM.h in Headers */,
 				0A367E4F618423FE4D3A6C67 /* KSArchivable.h in Headers */,
 				0234F35F4E87893507BE4F67 /* KSAssociation.h in Headers */,
 				1D794372B10D7945A9583897 /* KSAttribute.h in Headers */,
 				1809ED9887D25BDA2FF9BCB8 /* KSBackbone.h in Headers */,
 				CC9B3C586A40A3BF0170DB27 /* KSCallback.h in Headers */,
+				0AD37F711B6EADB9009B2BC7 /* KSStates.h in Headers */,
 				7CA4DE0ED158C98049525E11 /* KSCollection.h in Headers */,
 				335D0D6E6C70EFD5B9763CFE /* KSEnumerable.h in Headers */,
 				3BE948A2ECA4ECDF4796CDF4 /* KSEvents.h in Headers */,
@@ -954,6 +1003,7 @@
 				BE88A1CCC72DE91CE01E458D /* KSInflector.h in Headers */,
 				D60B3C10B419979E93897D3B /* KSIterable.h in Headers */,
 				5452CE6DC7BA7EF686F7B96E /* KSModel.h in Headers */,
+				0AD37F751B6EADB9009B2BC7 /* KSTransitions.h in Headers */,
 				7D7FF3120020FF88B54011EE /* KSParsable.h in Headers */,
 				17D177A6B7C742E75D0ED534 /* KSParser.h in Headers */,
 				951873DB7649D66B2B831231 /* KSReason.h in Headers */,
@@ -975,14 +1025,17 @@
 				3DA1E845E31D5BBB68E8BE78 /* NSDictionary+KSExistentialism.h in Headers */,
 				F4CD8C7E1ED56EA1C9956DA9 /* NSDictionary+KSParser.h in Headers */,
 				735277ED7AB5A2179DB483CA /* NSNumber+KSParser.h in Headers */,
+				0AD37F6F1B6EADB9009B2BC7 /* KSState.h in Headers */,
 				4A2653A5EC9B91EFF2CDF383 /* NSObject+KSEvents.h in Headers */,
 				A7743D9B68FD53E7141656E0 /* NSObject+KSExistentialism.h in Headers */,
 				1F42D187B822E1EBB4D99315 /* NSObject+KSParser.h in Headers */,
+				0AD37F731B6EADB9009B2BC7 /* KSTransition.h in Headers */,
 				35A776D374501329A1511A4C /* NSSet+KSEnumerable.h in Headers */,
 				3966C20E382742A708ED3A86 /* NSSet+KSExistentialism.h in Headers */,
 				F140E2902606299E18968A25 /* NSSet+KSParser.h in Headers */,
 				047738157A4E0FF48C5DE778 /* NSString+KSExistentialism.h in Headers */,
 				3E298A1C9CB3E7F93D4AFD4F /* NSString+KSInflection.h in Headers */,
+				0AD37F6D1B6EADB9009B2BC7 /* KSGuard.h in Headers */,
 				8D52253B756D7BA9FC0995EC /* NSString+KSParser.h in Headers */,
 				CEA2512476C0E06C1CB7C0D1 /* NSString+KSRegex.h in Headers */,
 				7D14788F7C02D0AE864D2875 /* NSURL+KSParser.h in Headers */,
@@ -1193,12 +1246,16 @@
 				E584F25AC897CAB0908F3B04 /* KSCollection.m in Sources */,
 				3DA2F477CDCBF998D5877656 /* KSHumanizer.m in Sources */,
 				6C75B144B824D009AFA7211A /* KSInflector.m in Sources */,
+				0AD37F761B6EADB9009B2BC7 /* KSTransitions.m in Sources */,
+				0AD37F6E1B6EADB9009B2BC7 /* KSGuard.m in Sources */,
 				74FB05B10BAB67AB763B779D /* KSModel.m in Sources */,
 				72ADF520008F9D6C8DDBABAE /* KSValidate.m in Sources */,
+				0AD37F6C1B6EADB9009B2BC7 /* KSFSM.m in Sources */,
 				237312046B2195A43CB42466 /* KSValidation.m in Sources */,
 				F509066DF8996B50490D2C30 /* KSValidationAbsence.m in Sources */,
 				17FCF12202D8218B380B55B1 /* KSValidationExclusion.m in Sources */,
 				65C98B3635B52745ED908E29 /* KSValidationFormat.m in Sources */,
+				0AD37F721B6EADB9009B2BC7 /* KSStates.m in Sources */,
 				F5D2EAF11FED325F273F409C /* KSValidationInclusion.m in Sources */,
 				8429F42AEA81E86F9137095F /* KSValidationLength.m in Sources */,
 				55CD19659435AA31E8DACD5E /* KSValidationPresence.m in Sources */,
@@ -1211,7 +1268,9 @@
 				D5E681C41E30E29D5D6E9525 /* NSDictionary+KSExistentialism.m in Sources */,
 				426303E53A46AA0F77AD3BCF /* NSDictionary+KSParser.m in Sources */,
 				5146F363D979664B48A394D7 /* NSNumber+KSParser.m in Sources */,
+				0AD37F701B6EADB9009B2BC7 /* KSState.m in Sources */,
 				CE9450351EB201B1300866C6 /* NSObject+KSEvents.m in Sources */,
+				0AD37F741B6EADB9009B2BC7 /* KSTransition.m in Sources */,
 				B5DB3168EB3C5D8377B0A9ED /* NSObject+KSExistentialism.m in Sources */,
 				3D562152FBAA890A759E8F6D /* NSObject+KSParser.m in Sources */,
 				F63EB826B2C4E84F4C966EA9 /* NSSet+KSEnumerable.m in Sources */,
@@ -1256,6 +1315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D25E72C94F38011BD41CB58D /* Pods-KSReason_Tests-dummy.m in Sources */,
+				0A3BE1D11B6C45F00085B92E /* KSStateful.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1573,6 +1633,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F91C433E05DC558846DFDB42 /* Pods-KSReason_Tests-KSReason-Private.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1627,6 +1688,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F91C433E05DC558846DFDB42 /* Pods-KSReason_Tests-KSReason-Private.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1644,6 +1706,7 @@
 				PRODUCT_NAME = KSReason;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

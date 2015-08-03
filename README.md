@@ -25,6 +25,8 @@ pod "KSReason"
 
 #### Models
 
+**Models** are designed to be extended and include serialization, validations, getters, setters, archiving, and copying: 
+
 ```objc
 KSModel *model = [KSModel new];
 [model parse:@{ @"id": @"...", @"title": @"...", @"description": @"..." }];
@@ -34,6 +36,8 @@ KSModel *model = [KSModel new];
 
 #### Collections
 
+**Collections** are ordered sets of models and include serialization, enumeration, archiving, and copying:
+
 ```objc
 KSCollection *collection = [KSCollection new];
 [collection parse:@[@{ @"id": @"...", @"title": @"...", @"description": @"..." }]];
@@ -41,6 +45,8 @@ collection.models;
 ```
 
 #### Events
+
+**Events** can be applied to both models and collections to easily track modifications:
 
 ```objc
 KSModel *model = [KSModel new];
@@ -66,9 +72,100 @@ void (^callback)(KSCollection *) = ^(KSCollection *collection) {
 [collection off:@"reset" callback:callback];
 ```
 
+### Stateful
+
+**Stateful** is a component designed to implement finite state machines. It support states, transitions, guards, and callbacks.
+
+#### Configuration
+
+**Configuration** of a finite state machine is done by configuring states, transitions, guards and callbacks:
+
+```objc
+__block typeof(self) bself = self;
+
+KSFSM *fsm = [KSFSM new];
+
+// States:
+
+KSState *sleeping = [KSState named:@"sleeping"];
+KSState *working = [KSState named:@"working"];
+KSState *resting = [KSState named:@"resting"];
+KSState *dead = [KSState named:@"dead"];
+
+[fsm.states add:sleeping];
+[fsm.states add:working];
+[fsm.states add:resting];
+[fsm.states add:dead];
+
+fsm.states.initial = resting;
+
+// Transitions:
+
+[fsm.transitions add:[KSTransition named:@"work" from:sleeping to:working]];
+[fsm.transitions add:[KSTransition named:@"rest" from:sleeping to:resting]];
+[fsm.transitions add:[KSTransition named:@"sleep" from:@[working,resting] to:sleeping]];
+[fsm.transitions add:[KSTransition named:@"sleep" from:@[sleeping,working,resting] to:dead]];
+
+// Guards:
+
+[work enterable:^BOOL {
+  // i.e. return bself.weekday;
+}];
+
+[rest enterable:^BOOL {
+  // i.e. return bself.weekend;
+}];
+
+[sleep exitable:^BOOL {
+  // i.e. return bself.daytime;
+}];
+
+// Callbacks:
+
+[sleeping entered:^(KSState *state, KSTransition *transition) {
+  // i.e. ZZZ ZZZ ZZZ
+}];
+
+[sleeping exited:^(KSState *state, KSTransition *transition) {
+  // i.e. BEEP BEEP BEEP
+}];
+
+```
+
+#### Usage
+
+**Usage** of a stateful object is done by executing transitions and checking for errors:
+
+```objc
+NSError *error;
+[fsm reset]; // Optional.
+
+[fsm transition:@"work" error:&error].execute;
+fsm.state; // working;
+
+[fsm transition:@"sleep" error:&error].execute;
+fsm.state; // sleeping;
+
+[fsm transition:@"rest" error:&error].execute;
+fsm.state; // resting;
+
+[fsm transition:@"sleep" error:&error].execute;
+fsm.state; // sleeping;
+
+[fsm transitionable:@"sleep"]; // i.e. YES or NO
+
+if (![fsm transition:@"sleep" error:&error].execute);
+  error; // <NSError @"invalid transition 'sleep' from 'sleeping' to 'sleeping">;
+
+```
+
 ### Enumerable
 
-#### Iterating
+**Enumerable** offers a number of extentions to support better enumeration for arrays, dictionaries, and sets:
+
+#### Each
+
+**Each** performs a block once on each entry of a collection:
 
 **Sets:**
 ```objc
@@ -95,6 +192,8 @@ NSDictionary *collection = @{ @"Canada": @"Victoria", @"Russia": @"Moscow", @"Gr
 ```
 
 #### Map
+
+**Map** performs a block once on each element of a collection and returns a collection of the same type with the block results:
 
 **Sets:**
 ```objc
@@ -125,6 +224,8 @@ NSDictionary *mapping = [collection ks_map:^NSString *(NSString *key, NSString *
 
 #### Reduce
 
+**Reduce** performs a block once on each element of a collection tracking a memo that will be returned as every entry is iterated:
+
 **Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
@@ -150,6 +251,8 @@ NSString *reduction = [collection ks_reduce:^NSString *(NSString *memo, NSString
 ```
 
 #### Find
+
+**Find** passes each element of a collection and returns the element matching the criteria:
 
 **Sets:**
 ```objc
@@ -177,6 +280,8 @@ NSString *element = [collection ks_find:^BOOL (NSString *key, NSString *value) {
 
 #### Any
 
+**Any** passes each element of a collection to a given block and returns a boolean indicating if the block matches any element:
+
 **Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
@@ -203,6 +308,8 @@ BOOL any = [collection ks_any:^BOOL (NSString *key, NSString *value) {
 
 #### All
 
+**All** passes each element of a collection to a given block and returns a boolean indicating if the block ever matches every element:
+
 **Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
@@ -228,6 +335,8 @@ BOOL all = [collection ks_all:^BOOL (NSString *key, NSString *value) {
 ```
 
 #### Filter
+
+**Filter** passes each element of a collection to a given block and returns the filtered elements that do match the block:
 
 **Sets:**
 ```objc
@@ -258,6 +367,8 @@ NSDictionary *filtered = [collection ks_filter:^BOOL (NSString *key, NSString *v
 
 #### Reject
 
+**Reject** passes each element of a collection to a given block and returns the filtered elements that do not match the block:
+
 **Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@"Canada", @"Greece", @"Russia", NULL];
@@ -287,6 +398,8 @@ NSDictionary *filtered = [collection ks_reject:^BOOL (NSString *key, NSString *v
 
 #### Minimum
 
+**Minimum** searches a collection using `compare:` to get the minimum element (elements must implement `compare:`):
+
 **Sets:**
 ```objc
 NSSet *collection = [NSSet setWithObjects:@1.0, @1.25, @0.75, NULL];
@@ -306,6 +419,8 @@ collection.ks_minimum; // 0.75
 ```
 
 #### Maximum
+
+**Maximum** searches a collection using `compare:` to get the maximum element (elements must implement `compare:`):
 
 **Sets:**
 ```objc
@@ -328,6 +443,8 @@ collection.ks_maximum; //1.25
 ```
 
 #### Sample
+
+**Sample** grabs a random element from a collection.
 
 **Sets:**
 ```objc

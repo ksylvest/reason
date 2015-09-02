@@ -398,7 +398,7 @@ NSDictionary *filtered = [collection ks_reject:^BOOL (NSString *key, NSString *v
 
 #### Union
 
-**Union** Union produces the union of the target collection and the parameter collection:
+**Union** produces the union of the target collection and the parameter collection:
 
 **Sets:**
 ```objc
@@ -423,7 +423,7 @@ NSDictionary *omega = @{ @"B": @"B", @"C": @"C" };
 
 #### Intersection
 
-**Intersection** Intersection produces the intersection of the target collection and the parameter collection:
+**Intersection** produces the intersection of the target collection and the parameter collection:
 
 **Sets:**
 ```objc
@@ -448,7 +448,7 @@ NSDictionary *omega = @{ @"B": @"B", @"C": @"C" };
 
 #### Difference
 
-**Difference** Difference produces the difference of the target collection and the parameter collection:
+**Difference** produces the difference of the target collection and the parameter collection:
 
 **Sets:**
 ```objc

@@ -302,6 +302,75 @@ describe(@"KSEnumerable", ^{
         });
     });
     
+    describe(@"-ks_union:", ^{
+        it (@"unions sets", ^{
+            NSSet *alpha = [NSSet setWithObjects:@"A", @"B", NULL];
+            NSSet *omega = [NSSet setWithObjects:@"B", @"C", NULL];
+            
+            expect([alpha ks_union:omega]).to.equal([NSSet setWithObjects:@"A", @"B", @"C", NULL]);
+        });
+        
+        it (@"unions arrays", ^{
+            NSArray *alpha = [NSArray arrayWithObjects:@"A", @"B", NULL];
+            NSArray *omega = [NSArray arrayWithObjects:@"B", @"C", NULL];
+        
+            expect([alpha ks_union:omega]).to.equal([NSArray arrayWithObjects:@"A", @"B", @"C", NULL]);
+        });
+        
+        it (@"unions dictionaries", ^{
+            NSDictionary *alpha = @{ @"A": @"A", @"B": @"B" };
+            NSDictionary *omega = @{ @"B": @"B", @"C": @"C" };
+            
+            expect([alpha ks_union:omega]).to.equal(@{ @"A": @"A", @"B": @"B", @"C": @"C" });
+        });
+    });
+    
+    describe(@"-ks_intersection:", ^{
+        it (@"intersects sets", ^{
+            NSSet *alpha = [NSSet setWithObjects:@"A", @"B", NULL];
+            NSSet *omega = [NSSet setWithObjects:@"B", @"C", NULL];
+            
+            expect([alpha ks_intersection:omega]).to.equal([NSSet setWithObjects:@"B", NULL]);
+        });
+        
+        it (@"intersects arrays", ^{
+            NSArray *alpha = [NSArray arrayWithObjects:@"A", @"B", NULL];
+            NSArray *omega = [NSArray arrayWithObjects:@"B", @"C", NULL];
+            
+            expect([alpha ks_intersection:omega]).to.equal([NSArray arrayWithObjects:@"B", NULL]);
+        });
+        
+        it (@"intersects dictionaries", ^{
+            NSDictionary *alpha = @{ @"A": @"A", @"B": @"B" };
+            NSDictionary *omega = @{ @"B": @"B", @"C": @"C" };
+            
+            expect([alpha ks_intersection:omega]).to.equal(@{ @"B": @"B" });
+        });
+    });
+    
+    describe(@"-ks_difference:", ^{
+        it (@"differences sets", ^{
+            NSSet *alpha = [NSSet setWithObjects:@"A", @"B", NULL];
+            NSSet *omega = [NSSet setWithObjects:@"B", @"C", NULL];
+            
+            expect([alpha ks_difference:omega]).to.equal([NSSet setWithObjects:@"A", @"C", NULL]);
+        });
+        
+        it (@"differences arrays", ^{
+            NSArray *alpha = [NSArray arrayWithObjects:@"A", @"B", NULL];
+            NSArray *omega = [NSArray arrayWithObjects:@"B", @"C", NULL];
+            
+            expect([alpha ks_difference:omega]).to.equal([NSArray arrayWithObjects:@"A", @"C", NULL]);
+        });
+        
+        it (@"differences dictionaries", ^{
+            NSDictionary *alpha = @{ @"A": @"A", @"B": @"B" };
+            NSDictionary *omega = @{ @"B": @"B", @"C": @"C" };
+            
+            expect([alpha ks_difference:omega]).to.equal(@{ @"A": @"A", @"C": @"C" });
+        });
+    });
+    
     describe(@"-ks_keys", ^{
         it (@"exposes an accessor for all the keys", ^{
             NSDictionary *collection = @{ @"Canada": @"Ottawa", @"Greece": @"Athens", @"Russia": @"Moscow" };

@@ -168,11 +168,60 @@
 
 #pragma mark - Rejecting
 
-- (NSArray *)ks_reject:(KSIterableTestBlock)block
+- (instancetype)ks_reject:(KSIterableTestBlock)block
 {
     return [self ks_filter:[self ks_negate:block]];
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Union
+
+- (instancetype)ks_union:(id <KSIterable>)iterable
+{
+    NSMutableOrderedSet *result = [[NSMutableOrderedSet alloc] initWithArray:self];
+    
+    for (id object in iterable)
+    {
+        [result addObject:object];
+    }
+    
+    return [result array];
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Intersect
+
+- (instancetype)ks_intersection:(id<KSIterable>)iterable
+{
+    NSMutableOrderedSet *result = [[NSMutableOrderedSet alloc] init];
+    NSMutableOrderedSet *helper = [[NSMutableOrderedSet alloc] initWithArray:self];
+    
+    for (id object in iterable)
+    {
+        if ([helper containsObject:object]) [result addObject:object];
+    }
+    
+    return [result array];
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Difference
+
+- (instancetype)ks_difference:(id<KSIterable>)iterable
+{
+    NSMutableOrderedSet *result = [[NSMutableOrderedSet alloc] initWithArray:self];
+    
+    for (id object in iterable)
+    {
+        if ([result containsObject:object]) [result removeObject:object];
+        else [result addObject:object];
+    }
+    
+    return [result array];
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 

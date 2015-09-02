@@ -16,7 +16,7 @@ typedef id (^KSIterableReduceBlock)(id memo, id object);
 typedef id (^KSIterableReduceIBlock)(id memo, id object, NSUInteger index);
 typedef BOOL (^KSIterableTestBlock)(id object);
 
-@protocol KSIterable <NSObject>
+@protocol KSIterable <NSObject, NSFastEnumeration>
 
 /**
  Iterate over each element using a block.
@@ -105,6 +105,48 @@ typedef BOOL (^KSIterableTestBlock)(id object);
  @return A rejected Iterable.
  */
 - (instancetype)ks_reject:(KSIterableTestBlock)block;
+
+/**
+ Produce the union of the iterable and a passed iterable using a comparator. 
+
+ For example:
+
+    // a = 'A','B'
+    // b = 'B','C'
+    [a ks_union:b] // 'A','B','C'
+
+ @return The union of the target and iterable.
+ @return A sample.
+ */
+- (instancetype)ks_union:(id <KSIterable>)iterable;
+
+/**
+ Produce the union of the iterable and a passed iterable using a comparator.
+ 
+ For example:
+ 
+    // a = 'A','B'
+    // b = 'B','C'
+    [a ks_intersection:b] // 'B'
+ 
+ @param An iterable object.
+ @return The intersection of the target and iterable.
+ */
+- (instancetype)ks_intersection:(id <KSIterable>)iterable;
+
+/**
+ Produce the union of the iterable and a passed iterable using a comparator.
+ 
+ For example:
+ 
+    // a = 'A','B','C'
+    // b = 'B','C','D'
+    a.ks_difference(b) // 'A','C'
+ 
+ @param An iterable object.
+ @return The difference of the target and iterable.
+ */
+- (instancetype)ks_difference:(id <KSIterable>)iterable;
 
 /**
  Find the minimum (note: the elements must implement the `compare:`).

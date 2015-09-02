@@ -167,6 +167,69 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
+#pragma mark - Union
+
+- (NSDictionary *)ks_union:(NSDictionary *)iterable
+{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    
+    for (id key in self)
+    {
+        dictionary[key] = self[key];
+    }
+    
+    for (id key in iterable)
+    {
+        dictionary[key] = iterable[key];
+    }
+    
+    return dictionary;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Intersect
+
+- (NSDictionary *)ks_intersection:(NSDictionary *)iterable
+{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+  
+    for (id key in self)
+    {
+        if (iterable[key]) dictionary[key] = self[key];
+    }
+    
+    for (id key in iterable)
+    {
+        if (self[key]) dictionary[key] = iterable[key];
+    }
+    
+    return dictionary;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Difference
+
+- (NSDictionary *)ks_difference:(NSDictionary *)iterable
+{
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    
+    for (id key in self)
+    {
+        if (!iterable[key]) dictionary[key] = self[key];
+    }
+    
+    for (id key in iterable)
+    {
+        if (!self[key]) dictionary[key] = iterable[key];
+    }
+    
+    return dictionary;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 #pragma mark - Negating
 
 - (KSDictionaryTestBlock)ks_negate:(KSDictionaryTestBlock)block

@@ -25,6 +25,17 @@ NSString * const KSModelAttributesKey = @"attributes";
 
 ////////////////////////////////////////////////////////////////////////////////
 
+#pragma mark - Lifecycle
+
+- (id)initWithParameters:(NSDictionary *)parameters
+{
+    self = [super init];
+    if (self) [self parse:parameters];
+    return self;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 #pragma mark - Parsable
 
 - (void)parse:(NSDictionary *)attributes

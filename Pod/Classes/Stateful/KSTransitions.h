@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class KSTransition;
+
 @interface KSTransitions : NSObject
+
+- (void)add:(KSTransition *)transition;
 
 @end

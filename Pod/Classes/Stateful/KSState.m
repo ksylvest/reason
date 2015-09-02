@@ -10,6 +10,30 @@
 
 @implementation KSState
 
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Factories
+
++ (instancetype)named:(NSString *)name
+{
+    return [[self alloc] initWithName:name];
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Lifecycle
+
+- (id)initWithName:(NSString *)name
+{
+    self = [super init];
+    if (self) self.name = name;
+    return self;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Helpers
+
 - (void)entered:(KSStateChangeCallback)callback
 {
     
@@ -22,12 +46,12 @@
 
 - (BOOL)enterable
 {
-    
+    return NO;
 }
 
 - (BOOL)exitable
 {
-    
+    return NO;
 }
 
 - (void)enter

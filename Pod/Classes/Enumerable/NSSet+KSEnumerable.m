@@ -175,6 +175,56 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
+#pragma mark - Union
+
+- (instancetype)ks_union:(id <KSIterable>)iterable
+{
+    NSMutableOrderedSet *result = [[NSMutableOrderedSet alloc] initWithSet:self];
+    
+    for (id object in iterable)
+    {
+        [result addObject:object];
+    }
+    
+    return [result set];
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Intersect
+
+- (instancetype)ks_intersection:(id<KSIterable>)iterable
+{
+    NSMutableOrderedSet *result = [[NSMutableOrderedSet alloc] init];
+    NSMutableOrderedSet *helper = [[NSMutableOrderedSet alloc] initWithSet:self];
+    
+    for (id object in iterable)
+    {
+        if ([helper containsObject:object]) [result addObject:object];
+    }
+    
+    return [result set];
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Difference
+
+- (instancetype)ks_difference:(id<KSIterable>)iterable
+{
+    NSMutableOrderedSet *result = [[NSMutableOrderedSet alloc] initWithSet:self];
+    
+    for (id object in iterable)
+    {
+        if ([result containsObject:object]) [result removeObject:object];
+        else [result addObject:object];
+    }
+    
+    return [result set];
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 #pragma mark - Converters
 
 - (NSArray *)ks_array:(KSIterableMapBlock)block

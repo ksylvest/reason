@@ -7,7 +7,16 @@
 //
 
 #import "KSTransitions.h"
+#import "KSTransition.h"
 
 @implementation KSTransitions
+
+////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - Augmentation
+
+- (void)add:(KSTransition *)transition
+{
+}
 
 @end

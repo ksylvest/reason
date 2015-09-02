@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "KSReason"
-  s.version          = "1.4.1"
+  s.version          = "1.5.0"
   s.summary          = "A number of helpers for doing iteration, parsing, and more"
   s.description      = <<-DESC
                        * `KSParser` provides parsing for a number of classes such as NSNumber, NSString and NSDate to help with parsing APIs.

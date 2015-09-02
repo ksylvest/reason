@@ -17,6 +17,13 @@
 @interface KSCollection : NSObject <KSArchivable, KSParsable, KSEvents, NSCopying, NSCoding, NSFastEnumeration>
 
 /**
+ Helper constructor that can construct a collection with provided parameters.
+ @param parameters The parameters (as an array) to initialize with.
+ @return A new collection.
+ */
+- (id)initWithParameters:(NSArray *)parameters;
+
+/**
  The kind of model the collection should serialize into (defaults to the base). Override this method in subclasses.
  @return A subclass of `KSModel`.
  */

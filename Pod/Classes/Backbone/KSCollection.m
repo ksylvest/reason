@@ -25,6 +25,17 @@ NSString * const KSCollectionModelsKey = @"models";
 
 ////////////////////////////////////////////////////////////////////////////////
 
+#pragma mark - Lifecycle
+
+- (id)initWithParameters:(NSArray *)parameters
+{
+    self = [super init];
+    if (self) [self parse:parameters];
+    return self;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 #pragma mark - Overridable
 
 - (Class)kind

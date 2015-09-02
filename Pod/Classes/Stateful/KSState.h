@@ -15,6 +15,8 @@ typedef void (^KSStateChangeCallback)(KSState *state, KSTransition *transition);
 
 @interface KSState : NSObject
 
++ (instancetype)named:(NSString *)name;
+
 @property (nonatomic, strong) NSString *name;
 
 - (void)entered:(KSStateChangeCallback)callback;

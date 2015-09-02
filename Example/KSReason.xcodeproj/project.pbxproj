@@ -74,7 +74,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
+				60FF7A9C1954A5C5007DD14C /* Metadata */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -128,14 +128,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
+		60FF7A9C1954A5C5007DD14C /* Metadata */ = {
 			isa = PBXGroup;
 			children = (
 				E79BFD31A197CFDC73D07BAE /* KSReason.podspec */,
 				8E310790DDAA6F17B04F25A6 /* README.md */,
 				64EB71FE1F1CDBC898E762E2 /* LICENSE */,
 			);
-			name = "Podspec Metadata";
+			name = Metadata;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

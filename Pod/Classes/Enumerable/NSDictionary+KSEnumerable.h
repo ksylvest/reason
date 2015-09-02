@@ -96,6 +96,49 @@ extern KSDictionaryTestBlock KSDictionaryTestBlockNegate(KSDictionaryTestBlock b
  */
 - (NSDictionary *)ks_reject:(KSDictionaryTestBlock)block;
 
+
+/**
+ Produce the union of the iterable and a passed iterable using a comparator.
+ 
+ For example:
+ 
+ // a = 'A','B'
+ // b = 'B','C'
+ [a ks_union:b] // 'A','B','C'
+ 
+ @return The union of the target and iterable.
+ @return A sample.
+ */
+- (NSDictionary *)ks_union:(NSDictionary *)iterable;
+
+/**
+ Produce the union of the iterable and a passed iterable using a comparator.
+ 
+ For example:
+ 
+ // a = 'A','B'
+ // b = 'B','C'
+ [a ks_intersection:b] // 'B'
+ 
+ @param An iterable object.
+ @return The intersection of the target and iterable.
+ */
+- (NSDictionary *)ks_intersection:(NSDictionary *)iterable;
+
+/**
+ Produce the union of the iterable and a passed iterable using a comparator.
+ 
+ For example:
+ 
+ // a = 'A','B','C'
+ // b = 'B','C','D'
+ a.ks_difference(b) // 'A','C'
+ 
+ @param An iterable object.
+ @return The difference of the target and iterable.
+ */
+- (NSDictionary *)ks_difference:(NSDictionary *)iterable;
+
 /**
  Helps to convert a dictionary to a set using a block on each key and value pair.
  @param block A dictionary used to do the reducing of a key and value pair to an object.

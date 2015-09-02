@@ -25,7 +25,7 @@ pod "KSReason"
 
 #### Models
 
-**Models** are designed to be extended and include serialization, validations, getters, setters, archiving, and copying: 
+**Models** are designed to be extended and include serialization, validations, getters, setters, archiving, and copying:
 
 ```objc
 KSModel *model = [KSModel new];
@@ -396,6 +396,81 @@ NSDictionary *filtered = [collection ks_reject:^BOOL (NSString *key, NSString *v
 }];
 ```
 
+#### Union
+
+**Union** Union produces the union of the target collection and the parameter collection:
+
+**Sets:**
+```objc
+NSSet *alpha = [NSSet setWithObjects:@"A", @"B", NULL];
+NSSet *omega = [NSSet setWithObjects:@"B", @"C", NULL];
+[alpha ks_union:omega]; // [NSSet setWithObjects:@"A", @"B", @"C", NULL];
+```
+
+**Arrays:**
+```objc
+NSArray *alpha = [NSArray arrayWithObjects:@"A", @"B", NULL];
+NSArray *omega = [NSArray arrayWithObjects:@"B", @"C", NULL];
+[alpha ks_union:omega]; // [NSArray arrayWithObjects:@"A", @"B", @"C", NULL];
+```
+
+**Dictionaries:**
+```objc
+NSDictionary *alpha = @{ @"A": @"A", @"B": @"B" };
+NSDictionary *omega = @{ @"B": @"B", @"C": @"C" };
+[alpha ks_union:omega]; // @{ @"A": @"A", @"B": @"B", @"C": @"C" };
+```
+
+#### Intersection
+
+**Intersection** Intersection produces the intersection of the target collection and the parameter collection:
+
+**Sets:**
+```objc
+NSSet *alpha = [NSSet setWithObjects:@"A", @"B", NULL];
+NSSet *omega = [NSSet setWithObjects:@"B", @"C", NULL];
+[alpha ks_intersection:omega]; // [NSSet setWithObjects:@"B", NULL];
+```
+
+**Arrays:**
+```objc
+NSArray *alpha = [NSArray arrayWithObjects:@"A", @"B", NULL];
+NSArray *omega = [NSArray arrayWithObjects:@"B", @"C", NULL];
+[alpha ks_intersection:omega]; // [NSArray arrayWithObjects:@"B", NULL];
+```
+
+**Dictionaries:**
+```objc
+NSDictionary *alpha = @{ @"A": @"A", @"B": @"B" };
+NSDictionary *omega = @{ @"B": @"B", @"C": @"C" };
+[alpha ks_intersection:omega]; // @{ @"B": @"B" };
+```
+
+#### Difference
+
+**Difference** Difference produces the difference of the target collection and the parameter collection:
+
+**Sets:**
+```objc
+NSSet *alpha = [NSSet setWithObjects:@"A", @"B", NULL];
+NSSet *omega = [NSSet setWithObjects:@"B", @"C", NULL];
+[alpha ks_difference:omega]; // [NSSet setWithObjects:@"A", @"C", NULL];
+```
+
+**Arrays:**
+```objc
+NSArray *alpha = [NSArray arrayWithObjects:@"A", @"B", NULL];
+NSArray *omega = [NSArray arrayWithObjects:@"B", @"C", NULL];
+[alpha ks_difference:omega]; // [NSArray arrayWithObjects:@"A", @"C", NULL];
+```
+
+**Dictionaries:**
+```objc
+NSDictionary *alpha = @{ @"A": @"A", @"B": @"B" };
+NSDictionary *omega = @{ @"B": @"B", @"C": @"C" };
+[alpha ks_difference:omega]; // @{ @"A": @"A", @"C": @"C" };
+```
+
 #### Minimum
 
 **Minimum** searches a collection using `compare:` to get the minimum element (elements must implement `compare:`):
@@ -470,7 +545,7 @@ collection.ks_sample; // (1.0 | 1.25 | 0.75)
 
 ```objc
 NSDictionary *attributes = @{ @"name": @"John Smith", @"email": @"john.smith@mail.org", @"phone": @"+1 555-555-5555" };
-NSDictionary *validations = @{ 
+NSDictionary *validations = @{
   @"name": @{ KSValidate.presence: @{ KSValidate.message: @"must be entered" } },
   @"tagline": @{ KSValidate.length: @{ KSValidate.minimum: @20, KSValidate.maximum: @80 } },
   @"email": @{ KSValidate.format: @{ KSValidate.with: KSValidateFormatEmail } },
@@ -482,10 +557,10 @@ NSDictionary *validations = @{
 KSValidator *validator = [KSValidator validator:validations];
 [validator validate:attributes];
 
-validator.errors; 
-// ex.: 
-// @{ 
-//   @"tagline": @[@"must be between 20 and 80 characters", @"cannot contain inappriate language"], 
+validator.errors;
+// ex.:
+// @{
+//   @"tagline": @[@"must be between 20 and 80 characters", @"cannot contain inappriate language"],
 //   @"email": @[@"is formatted wrong"], @"phone": @[@"is formatted wrong"]
 // };
 

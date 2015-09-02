@@ -16,6 +16,13 @@
 @interface KSModel : NSObject <KSIdentifiable, KSArchivable, KSParsable, KSEvents, NSCopying, NSCoding>
 
 /**
+ Helper constructor that can construct a model with provided parameters.
+ @param parameters The parameters to initialize with.
+ @return A new model.
+ */
+- (id)initWithParameters:(NSDictionary *)parameters;
+
+/**
  Get the value of an attribute from a model.
  @param attribute The name of the attribute.
  @return The value of the attribute.

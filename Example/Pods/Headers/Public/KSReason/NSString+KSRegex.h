@@ -1,1 +1,0 @@
-../../../../../Pod/Classes/Inflections/NSString+KSRegex.h

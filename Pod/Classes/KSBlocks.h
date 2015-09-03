@@ -1,16 +1,14 @@
 //
-//  KSValidations.h
+//  KSBlocks.h
 //  Pods
 //
-//  Created by Kevin Sylvestre on 2015-06-19.
+//  Created by Kevin Sylvestre on 2015-09-02.
 //
 //
 
-#ifndef Pods_KSValidations_h
-#define Pods_KSValidations_h
+#ifndef Pods_KSBlocks_h
+#define Pods_KSBlocks_h
 
-#import <KSReason/KSValidate.h>
-#import <KSReason/KSValidator.h>
-#import <KSReason/KSValidation.h>
+#import <KSReason/KSDebounce.h>
 
 #endif

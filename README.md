@@ -539,6 +539,23 @@ NSDictionary *collection = @{ @"USD": @1.0, @"CDN": @1.25, @"EUR": @0.75 };
 collection.ks_sample; // (1.0 | 1.25 | 0.75)
 ```
 
+### Functions
+
+**Functions** offers a number of helpers for working with blocks:
+
+#### Debounce
+
+ **Debounce** defers a block from executing until after an interval elapses:
+
+```objc
+KSDebounce *debounce = [KSDebounce new];
+
+__block typeof(self) bself;
+[debounce debounce:0.2 block: ^{
+  [bself search:self.mainSearchBar.text];
+}];
+```
+
 ### Validations
 
 #### Validate
@@ -592,8 +609,8 @@ validator.humanize;
 [KSValidator format:@"tester" with:KSValidationPhone]; // NO
 [KSValidator format:@"+1 555-555-5555" with:KSValidationPhone]; // YES
 
-[KSValidator format:@"..." with:@"\\A[a-z]+\\z"]; // NO
-[KSValidator format:@"abcdefghijklmnopqrstuvwxyz" with:@"\\A[a-z]+\\z"]; // YES
+[KSValidator format:@"..." with:@"\\...\\"]; // NO
+[KSValidator format:@"abcdefghijklmnopqrstuvwxyz" with:@"\\..\\"]; // YES
 ```
 
 #### Inclusion

@@ -10,9 +10,11 @@
 #define KSReason_h
 
 #import <KSReason/KSParser.h>
+#import <KSReason/KSBlocks.h>
 #import <KSReason/KSEnumerable.h>
 #import <KSReason/KSCallback.h>
 #import <KSReason/KSBackbone.h>
+#import <KSReason/KSFormatting.h>
 #import <KSReason/KSInflection.h>
 #import <KSReason/KSExistentialism.h>
 #import <KSReason/KSValidations.h>
